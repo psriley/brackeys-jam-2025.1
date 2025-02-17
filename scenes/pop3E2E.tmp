@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdxt41dw62tvk"]
 
-[ext_resource type="Script" path="res://scripts/pop_up_mini_game.gd" id="1_0jfp0"]
+[ext_resource type="Script" path="res://scenes/pop_up_mini_game.gd" id="1_0jfp0"]
 [ext_resource type="Texture2D" uid="uid://7tau28k7vhii" path="res://Assets/Popup_temp.png" id="2_5gael"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twr8j"]
