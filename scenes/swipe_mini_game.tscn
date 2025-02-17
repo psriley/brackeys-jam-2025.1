@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://drd7u6hbc8yn8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yga0r"]
+size = Vector2(130, 130)
+
+[node name="SwipeMiniGame" type="Node2D" groups=["droppable"]]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_yga0r")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[connection signal="input_event" from="StaticBody2D" to="StaticBody2D" method="_on_input_event"]
