@@ -1,31 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfn6vyc01hbvt"]
+[gd_scene load_steps=2 format=3 uid="uid://dfn6vyc01hbvt"]
 
-[ext_resource type="Script" path="res://scripts/presentation_slides.gd" id="1_1vyh7"]
-
-[sub_resource type="Gradient" id="Gradient_4y8vc"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_1j4hy"]
-gradient = SubResource("Gradient_4y8vc")
-
-[sub_resource type="Gradient" id="Gradient_l5tf7"]
-offsets = PackedFloat32Array(0.97545, 1)
-colors = PackedColorArray(0, 0.739523, 0.674553, 1, 0.639935, 0.639935, 0.639935, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_utffs"]
-gradient = SubResource("Gradient_l5tf7")
-
-[sub_resource type="Gradient" id="Gradient_lfxos"]
-offsets = PackedFloat32Array(0.0114566, 0.948571)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_x03gg"]
-gradient = SubResource("Gradient_lfxos")
-
-[sub_resource type="Gradient" id="Gradient_50gyp"]
-offsets = PackedFloat32Array(0, 0.485714, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_l8r1h"]
-gradient = SubResource("Gradient_50gyp")
+[ext_resource type="PackedScene" uid="uid://b0mds32lmdvo3" path="res://scenes/presentation_projection.tscn" id="1_ex4ci"]
 
 [node name="Main" type="Node2D"]
 
@@ -34,14 +9,4 @@ position = Vector2(576, 324)
 
 [node name="spr_background" type="Sprite2D" parent="."]
 
-[node name="spr_presentation" type="Sprite2D" parent="."]
-position = Vector2(575, 326.5)
-scale = Vector2(4.45313, 639)
-texture = SubResource("GradientTexture1D_1j4hy")
-script = ExtResource("1_1vyh7")
-slides = Array[Texture]([SubResource("GradientTexture1D_utffs"), SubResource("GradientTexture1D_x03gg"), SubResource("GradientTexture1D_l8r1h")])
-
-[node name="tmr_slides" type="Timer" parent="spr_presentation"]
-one_shot = true
-
-[connection signal="timeout" from="spr_presentation/tmr_slides" to="spr_presentation" method="_on_tmr_slides_timeout"]
+[node name="spr_presentation" parent="." instance=ExtResource("1_ex4ci")]
