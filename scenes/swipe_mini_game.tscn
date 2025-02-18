@@ -1,22 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://drd7u6hbc8yn8"]
+[gd_scene load_steps=4 format=3 uid="uid://drd7u6hbc8yn8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yga0r"]
-size = Vector2(130, 130)
+[ext_resource type="PackedScene" uid="uid://dmvolwdrk0j2v" path="res://scenes/swipeable_object.tscn" id="1_8enh6"]
+[ext_resource type="Script" path="res://scripts/swipe_mini_game.gd" id="1_dkaao"]
+[ext_resource type="PackedScene" uid="uid://e3yibrklrx4e" path="res://scenes/swipe_area.tscn" id="2_t4a8p"]
 
 [node name="SwipeMiniGame" type="Node2D" groups=["droppable"]]
+script = ExtResource("1_dkaao")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="SwipeArea" parent="." instance=ExtResource("2_t4a8p")]
+position = Vector2(558, 118)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-input_pickable = true
+[node name="SwipeArea2" parent="." instance=ExtResource("2_t4a8p")]
+position = Vector2(558, 490)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_yga0r")
+[node name="SwipeableObject" parent="." instance=ExtResource("1_8enh6")]
+position = Vector2(559, 292)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[connection signal="input_event" from="StaticBody2D" to="StaticBody2D" method="_on_input_event"]
+[connection signal="drag" from="." to="." method="_on_drag"]
