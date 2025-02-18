@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfn6vyc01hbvt"]
+[gd_scene load_steps=3 format=3 uid="uid://dfn6vyc01hbvt"]
 
 [ext_resource type="PackedScene" uid="uid://b0mds32lmdvo3" path="res://scenes/presentation_projection.tscn" id="1_ex4ci"]
+[ext_resource type="PackedScene" uid="uid://ccyioibeiq38r" path="res://scenes/manager.tscn" id="2_7he25"]
 
 [node name="Main" type="Node2D"]
 
@@ -10,3 +11,5 @@ position = Vector2(576, 324)
 [node name="spr_background" type="Sprite2D" parent="."]
 
 [node name="spr_presentation" parent="." instance=ExtResource("1_ex4ci")]
+
+[node name="Node" parent="." instance=ExtResource("2_7he25")]

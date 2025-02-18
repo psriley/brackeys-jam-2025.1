@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccyioibeiq38r"]
+
+[ext_resource type="Script" path="res://ManagerScene.gd" id="1_uvpon"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_uvpon")
+
+[node name="tmr_next_game" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="tmr_next_game" to="." method="_on_tmr_next_game_timeout"]

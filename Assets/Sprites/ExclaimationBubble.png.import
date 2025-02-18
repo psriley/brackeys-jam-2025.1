@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g0i2l8lhfyd6"
-path="res://.godot/imported/Popup_temp.png-edac4ad2381a02c1726f0ff6db54290b.ctex"
+uid="uid://7fu30m2mn1bu"
+path="res://.godot/imported/ExclaimationBubble.png-3b79df35a3941b003141d10c154be3bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Popup_temp.png"
-dest_files=["res://.godot/imported/Popup_temp.png-edac4ad2381a02c1726f0ff6db54290b.ctex"]
+source_file="res://Assets/Sprites/ExclaimationBubble.png"
+dest_files=["res://.godot/imported/ExclaimationBubble.png-3b79df35a3941b003141d10c154be3bc.ctex"]
 
 [params]
 
