@@ -11,9 +11,10 @@ script = ExtResource("1_dkaao")
 position = Vector2(880, -71)
 
 [node name="SwipeArea2" parent="." instance=ExtResource("2_t4a8p")]
-position = Vector2(558, 490)
+position = Vector2(886, 388)
 
 [node name="SwipeableObject" parent="." instance=ExtResource("1_8enh6")]
+z_index = 5
 position = Vector2(880, 89)
 start_in_drop_area = true
 

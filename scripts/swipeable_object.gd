@@ -25,7 +25,7 @@ func _ready() -> void:
 
 		swipe_area_instance.position = global_position
 		
-		get_tree().current_scene.add_child(swipe_area_instance)
+		get_tree().current_scene.add_child.call_deferred(swipe_area_instance)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
