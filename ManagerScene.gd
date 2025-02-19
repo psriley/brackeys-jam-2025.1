@@ -9,7 +9,7 @@ func _ready() -> void:
 
 #Code to instanciate the next game
 func _next_game() -> void:
-	var i = 0#randf_range(0.0,2.0)
+	var i = randf_range(0.0,2.0)
 	print("i is " + str(i))
 	match int(i):
 		0:
@@ -22,7 +22,8 @@ func _next_game() -> void:
 			print("add pop up")
 			#load pop_up_scene
 		1:
-			get_parent().add_child(swipe_scene.instantiate())
+			var swipe_instance : Node2D = swipe_scene.instantiate()
+			get_parent().add_child(swipe_instance)
 			print("add swipe game")
 			#load swipte_mini_game
 	pass
