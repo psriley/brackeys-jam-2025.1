@@ -10,11 +10,13 @@ var swipe_area_scene : PackedScene
 @export var swipe_area_instance: DroppableArea
 
 var swiping = false  # Tracks if the object is being swiped
+var camera : Camera2D
 
 
 func _ready() -> void:
 	var swipe_area_scene = load("res://scenes/swipe_area.tscn")
 	area_2d.add_to_group("swipeable_objects")
+	var camera = get_viewport().get_camera_2d()
 	
 	if start_in_drop_area:
 		swipe_area_instance = swipe_area_scene.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
@@ -30,6 +32,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if swiping:
 		var mousepos = get_viewport().get_mouse_position()
+		if camera:
+			mousepos = get_viewport().get_camera_2d().get_global_mouse_position()
 		self.position = Vector2(self.position.x, mousepos.y)
 
 
