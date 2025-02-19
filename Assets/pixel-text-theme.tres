@@ -6,3 +6,5 @@
 default_font_size = 40
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = ExtResource("1_rsgxi")
+LineEdit/fonts/font = ExtResource("1_rsgxi")
+RichTextLabel/fonts/normal_font = ExtResource("1_rsgxi")
