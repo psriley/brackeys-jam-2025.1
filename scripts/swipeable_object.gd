@@ -16,7 +16,7 @@ var camera : Camera2D
 func _ready() -> void:
 	var swipe_area_scene = load("res://scenes/swipe_area.tscn")
 	area_2d.add_to_group("swipeable_objects")
-	var camera = get_viewport().get_camera_2d()
+	camera = get_viewport().get_camera_2d()
 	
 	if start_in_drop_area:
 		swipe_area_instance = swipe_area_scene.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
