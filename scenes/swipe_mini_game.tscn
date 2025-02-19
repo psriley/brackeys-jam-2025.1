@@ -8,12 +8,13 @@
 script = ExtResource("1_dkaao")
 
 [node name="SwipeArea" parent="." instance=ExtResource("2_t4a8p")]
-position = Vector2(558, 118)
+position = Vector2(880, -71)
 
 [node name="SwipeArea2" parent="." instance=ExtResource("2_t4a8p")]
 position = Vector2(558, 490)
 
 [node name="SwipeableObject" parent="." instance=ExtResource("1_8enh6")]
-position = Vector2(559, 292)
+position = Vector2(880, 89)
+start_in_drop_area = true
 
 [connection signal="drag" from="." to="." method="_on_drag"]

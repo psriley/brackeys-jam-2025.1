@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 	pass
 
 
+# @param start_set: If setting a drop area on start (no hovering present)
 func set_drop_area() -> void:
 	self.modulate = Color(Color.MEDIUM_PURPLE, 0.7)
 	
