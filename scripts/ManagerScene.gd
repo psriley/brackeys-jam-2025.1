@@ -23,15 +23,14 @@ func _ready() -> void:
 
 #Code to instanciate the next game
 func _next_game() -> void:
-	#var i = randf_range(0.0,2.0)
-	var i = 2
+	var i = randf_range(0.0,2.0)
+	#var i = 0
 	print("i is " + str(i))
 	match int(i):
 		0:
 			var popup_instance : Node2D = pop_up_scene.instantiate()
 			#randomise position between defined boundaries
-			popup_instance.position = Vector2(225,225)
-			popup_instance.scale = Vector2(0.55,0.55)
+			popup_instance.position = Vector2(25,25)
 			
 			get_parent().add_child(popup_instance)
 			print("add pop up")
@@ -42,6 +41,7 @@ func _next_game() -> void:
 			print("add swipe game")
 			#load swipte_mini_game
 		2:
+			print("add question")
 			var x = randf_range(0, dict_questions.size())
 			var answer_instance : Control = question_input.instantiate()
 			question_instance = question_display.instantiate()
