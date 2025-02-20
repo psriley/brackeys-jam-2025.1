@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bum0ta86nmle1"]
+[gd_scene load_steps=9 format=3 uid="uid://bum0ta86nmle1"]
 
 [ext_resource type="Texture2D" uid="uid://b45fw756ngvgs" path="res://Assets/Sprites/placeholder-main-scene#2.png" id="1_ykboh"]
 [ext_resource type="PackedScene" uid="uid://dmvolwdrk0j2v" path="res://scenes/swipeable_object.tscn" id="2_mdhsn"]
@@ -6,11 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://gsdypvj03o0x" path="res://Assets/Sprites/tv-edge.png" id="3_tpho3"]
 [ext_resource type="PackedScene" uid="uid://b0mds32lmdvo3" path="res://scenes/presentation_projection.tscn" id="3_w2f5d"]
 [ext_resource type="Texture2D" uid="uid://cpbgn08mntpgv" path="res://Assets/Sprites/audience-member.png" id="5_b156c"]
+[ext_resource type="PackedScene" uid="uid://cyx5mca01sqqo" path="res://scenes/question_display.tscn" id="7_sfotf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvow8"]
+size = Vector2(72.0907, 36.9381)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="ScaledSprites" type="Node2D" parent="."]
-scale = Vector2(2.247, 2.247)
+scale = Vector2(3, 3)
 
 [node name="MainSprite" type="Sprite2D" parent="ScaledSprites"]
 position = Vector2(64.0854, 36.0481)
@@ -38,10 +42,15 @@ texture = ExtResource("5_b156c")
 position = Vector2(5.34045, 70.761)
 texture = ExtResource("5_b156c")
 
+[node name="Area2D" type="Area2D" parent="ScaledSprites"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScaledSprites/Area2D"]
+position = Vector2(45.0453, 26.48)
+shape = SubResource("RectangleShape2D_gvow8")
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(144, 81)
-scale = Vector2(2.07639, 2.07639)
-zoom = Vector2(4, 4)
+position = Vector2(192, 108)
+zoom = Vector2(3, 3)
 
 [node name="spr_presentation" parent="." instance=ExtResource("3_w2f5d")]
 visible = false
@@ -49,5 +58,8 @@ position = Vector2(105, 68)
 scale = Vector2(0.693405, 99.5)
 
 [node name="SwipeableObject" parent="." instance=ExtResource("2_mdhsn")]
-position = Vector2(143, 30)
+position = Vector2(204, 35)
 scale = Vector2(0.145, 0.145)
+
+[node name="Node2D" parent="." instance=ExtResource("7_sfotf")]
+position = Vector2(56, 177)
