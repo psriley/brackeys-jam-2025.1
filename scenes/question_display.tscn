@@ -6,6 +6,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ppgn"]
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2(0.3, 0.3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(163.25, 53.25)
@@ -20,3 +21,4 @@ theme = ExtResource("2_bh6ai")
 theme_override_colors/default_color = Color(0, 0, 0.054902, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_6ppgn")
 text = "What is the capital of France?"
+metadata/_edit_use_anchors_ = true
