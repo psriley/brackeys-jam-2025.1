@@ -1,6 +1,6 @@
 extends Node
 @onready var timer = $tmr_next_game
-@export var health: int = 10
+@export var health: int = 6
 #preload all minigames:
 var pop_up_scene = preload("res://scenes/pop_up_mini_game.tscn")
 var swipe_scene = preload("res://scenes/swipe_mini_game.tscn")
@@ -17,11 +17,13 @@ var dict_questions = {
 var question_instance : Node2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _on_tmr_next_game_timeout() -> void:
+	print("time's up!")
+	timer.wait_time = randf_range(2.0,6.0)
+	_next_game()
+	timer.start()
 
-#Code to instanciate the next game
+#Code to instantiate the next game
 func _next_game() -> void:
 	var i = randf_range(0.0,2.0)
 	#var i = 0
@@ -30,8 +32,9 @@ func _next_game() -> void:
 		0:
 			var popup_instance : Node2D = pop_up_scene.instantiate()
 			#randomise position between defined boundaries
+			#random range between 2 x co-ords and 2 y co-ords
 			popup_instance.position = Vector2(25,25)
-			
+
 			get_parent().add_child(popup_instance)
 			print("add pop up")
 			#load pop_up_scene
@@ -47,7 +50,7 @@ func _next_game() -> void:
 			question_instance = question_display.instantiate()
 			var temp_question: String
 			var temp_answer: String
-			
+
 			#Choose a random question
 			#Hack-ey way of doing this but hey, it works.
 			match int(x):
@@ -64,24 +67,18 @@ func _next_game() -> void:
 			answer_instance.target_answer = temp_answer
 			answer_instance.input_event_end.connect(_on_question_input_end)
 			answer_instance.position = Vector2(50,50)
-			
+
 			question_instance._set_text(temp_question)
 			print("And the question is... " + temp_question)
 			question_instance.position = Vector2(50,100)
-			
+
 			#instantiate
 			#get parent can be a direct reference instead
 			get_parent().add_child(answer_instance)
 			get_parent().add_child(question_instance)	
-	pass
 
-func _on_tmr_next_game_timeout() -> void:
-	print("time's up!")
-	timer.wait_time = randf_range(2.0,6.0)
-	_next_game()
-	timer.start()
-	pass # Replace with function body.
-	
+
+
 func _on_question_input_end(player_answer):
 	if player_answer == false:
 		#health -= 1
