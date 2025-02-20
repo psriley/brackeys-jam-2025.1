@@ -7,15 +7,10 @@
 [node name="SwipeMiniGame" type="Node2D" groups=["droppable"]]
 script = ExtResource("1_dkaao")
 
-[node name="SwipeArea" parent="." instance=ExtResource("2_t4a8p")]
-position = Vector2(880, -71)
-
-[node name="SwipeArea2" parent="." instance=ExtResource("2_t4a8p")]
-position = Vector2(886, 388)
+[node name="EndSwipeArea" parent="." instance=ExtResource("2_t4a8p")]
+position = Vector2(528, 154)
 
 [node name="SwipeableObject" parent="." instance=ExtResource("1_8enh6")]
 z_index = 5
-position = Vector2(880, 89)
+position = Vector2(532, 429)
 start_in_drop_area = true
-
-[connection signal="drag" from="." to="." method="_on_drag"]

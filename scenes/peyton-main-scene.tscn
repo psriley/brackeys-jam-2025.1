@@ -1,20 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://bum0ta86nmle1"]
+[gd_scene load_steps=7 format=3 uid="uid://bum0ta86nmle1"]
 
-[ext_resource type="Texture2D" uid="uid://buo4t6v0j1ami" path="res://Assets/Sprites/placeholder-main-scene.png" id="1_80xi7"]
+[ext_resource type="Texture2D" uid="uid://b45fw756ngvgs" path="res://Assets/Sprites/placeholder-main-scene#2.png" id="1_ykboh"]
 [ext_resource type="PackedScene" uid="uid://dmvolwdrk0j2v" path="res://scenes/swipeable_object.tscn" id="2_mdhsn"]
+[ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="2_mebpk"]
+[ext_resource type="Texture2D" uid="uid://gsdypvj03o0x" path="res://Assets/Sprites/tv-edge.png" id="3_tpho3"]
+[ext_resource type="PackedScene" uid="uid://b0mds32lmdvo3" path="res://scenes/presentation_projection.tscn" id="3_w2f5d"]
+[ext_resource type="Texture2D" uid="uid://cpbgn08mntpgv" path="res://Assets/Sprites/audience-member.png" id="5_b156c"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(143.889, 81.125)
-scale = Vector2(2.24653, 2.24653)
-texture = ExtResource("1_80xi7")
+[node name="ScaledSprites" type="Node2D" parent="."]
+scale = Vector2(2.247, 2.247)
+
+[node name="MainSprite" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(64.0854, 36.0481)
+texture = ExtResource("1_ykboh")
+
+[node name="TVScreen" type="Sprite2D" parent="ScaledSprites"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(45.1, 26.5)
+scale = Vector2(80, 45)
+texture = ExtResource("2_mebpk")
+
+[node name="TVEdge" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(45.1, 26.5)
+texture = ExtResource("3_tpho3")
+
+[node name="AudienceMember#1" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(4.89542, 64.9755)
+texture = ExtResource("5_b156c")
+
+[node name="AudienceMember#3" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(11.7305, 66.5251)
+texture = ExtResource("5_b156c")
+
+[node name="AudienceMember#2" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(5.34045, 70.761)
+texture = ExtResource("5_b156c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(144, 81)
 scale = Vector2(2.07639, 2.07639)
 zoom = Vector2(4, 4)
 
+[node name="spr_presentation" parent="." instance=ExtResource("3_w2f5d")]
+visible = false
+position = Vector2(105, 68)
+scale = Vector2(0.693405, 99.5)
+
 [node name="SwipeableObject" parent="." instance=ExtResource("2_mdhsn")]
-position = Vector2(148, 37)
+position = Vector2(143, 30)
 scale = Vector2(0.145, 0.145)

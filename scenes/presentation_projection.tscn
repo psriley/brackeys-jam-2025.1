@@ -28,8 +28,8 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_50gyp")
 
 [node name="spr_presentation" type="Sprite2D"]
-position = Vector2(575, 326.5)
-scale = Vector2(4.45313, 639)
+position = Vector2(190.539, 111)
+scale = Vector2(1.44953, 208)
 texture = SubResource("GradientTexture1D_1j4hy")
 script = ExtResource("1_vlw7v")
 slides = Array[Texture]([SubResource("GradientTexture1D_utffs"), SubResource("GradientTexture1D_x03gg"), SubResource("GradientTexture1D_l8r1h")])
