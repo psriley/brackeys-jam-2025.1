@@ -9,10 +9,12 @@ var question_display = preload("res://scenes/question_display.tscn")
 #Dict of questions and answers
 #	Rule; Questions must be ~<30 Chars
 var dict_questions = {
-	"What is the Capital of France":"Paris",
-	"How many goals in a hatrick":"Three",
+	"Paris":"What is the Capital of France",
+	"Cow":"What animal goes moo",
 	"":""
 }
+#Empty node for minigames:
+var question_instance : Node2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,7 +23,8 @@ func _ready() -> void:
 
 #Code to instanciate the next game
 func _next_game() -> void:
-	var i = randf_range(0.0,2.0)
+	#var i = randf_range(0.0,2.0)
+	var i = 2
 	print("i is " + str(i))
 	match int(i):
 		0:
@@ -39,10 +42,37 @@ func _next_game() -> void:
 			print("add swipe game")
 			#load swipte_mini_game
 		2:
+			var x = randf_range(0, dict_questions.size())
 			var answer_instance : Control = question_input.instantiate()
-			#retrieve answer from dict.
-			answer_instance.target_answer = "Temp"
+			question_instance = question_display.instantiate()
+			var temp_question: String
+			var temp_answer: String
+			
+			#Choose a random question
+			#Hack-ey way of doing this but hey, it works.
+			match int(x):
+				0:
+					print(dict_questions.get("Paris"))
+					temp_question = dict_questions.get("Paris")
+					temp_answer = "Paris"
+
+				1:
+					temp_question = dict_questions.get("Cow")
+					temp_answer = "Cow"
+
+			#set up input text box and question box with chosen question
+			answer_instance.target_answer = temp_answer
 			answer_instance.input_event_end.connect(_on_question_input_end)
+			answer_instance.position = Vector2(50,50)
+			
+			question_instance._set_text(temp_question)
+			print("And the question is... " + temp_question)
+			question_instance.position = Vector2(50,100)
+			
+			#instantiate
+			#get parent can be a direct reference instead
+			get_parent().add_child(answer_instance)
+			get_parent().add_child(question_instance)	
 	pass
 
 func _on_tmr_next_game_timeout() -> void:
@@ -52,9 +82,13 @@ func _on_tmr_next_game_timeout() -> void:
 	timer.start()
 	pass # Replace with function body.
 	
-func _on_question_input_end(correct_answer):
-	if correct_answer == false:
-		#health - 1
+func _on_question_input_end(player_answer):
+	if player_answer == false:
+		#health -= 1
 		pass
-	#Kill Question popup
+	else:
+		#Nothing?
+		pass
+	question_instance.queue_free()
+	
 	pass

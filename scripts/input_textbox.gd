@@ -1,4 +1,4 @@
-extends LineEdit
+extends Control
 @export var target_answer: String
 signal input_event_end(correct_answer)
 var correct_answer = false
