@@ -10,7 +10,7 @@ var question_display = preload("res://scenes/question_display.tscn")
 #	Rule; Questions must be ~<30 Chars
 var dict_questions = {
 	"What is the Capital of France":"Paris",
-	"How many goals in a hatrick":"three",
+	"How many goals in a hatrick":"Three",
 	"":""
 }
 
