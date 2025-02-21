@@ -36,9 +36,10 @@ func change_slide() -> bool:
 
 	while self.texture == new_slide:
 		new_slide = slides[randf_range(0,2)]
+	#
 	if new_slide > 2:
-		#set countdown to 
-		pass
+		return false
+		
 	self.texture = new_slide
 	return true
 
@@ -46,11 +47,15 @@ func change_slide() -> bool:
 #FPS set in the animation iteslf
 func reset_timer() -> void:
 	var good_slide_bool = change_slide()
-	var temp_SS = randf_range(3.0,10.0)
-		
-	tmr_slides.wait_time = (28/temp_SS)
-	slide_indicator.set_speed_scale(temp_SS)
 	
+	if good_slide_bool:
+		var temp_SS = randf_range(3.0,10.0)
+		tmr_slides.wait_time = (28/temp_SS)
+		slide_indicator.set_speed_scale(temp_SS)
+	else:
+		var temp_SS = randf_range(10.0,14.0)
+		tmr_slides.wait_time = (28/temp_SS)
+		slide_indicator.set_speed_scale(temp_SS)
 	
 	tmr_slides.start()
 	slide_indicator.play("progress_bar")
