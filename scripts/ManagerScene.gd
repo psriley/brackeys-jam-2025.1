@@ -1,5 +1,6 @@
 extends Node
 @onready var timer = $tmr_next_game
+
 @export var health: int = 6
 #preload all minigames:
 var pop_up_scene = preload("res://scenes/pop_up_mini_game.tscn")
@@ -16,12 +17,19 @@ var dict_questions = {
 #Empty node for minigames:
 var question_instance : Node2D
 
-
 func _on_tmr_next_game_timeout() -> void:
 	print("time's up!")
 	timer.wait_time = randf_range(2.0,6.0)
 	_next_game()
 	timer.start()
+
+
+func minigame_failure(minigame_type) -> void:
+	health -= 1
+	#remove audience member
+	print("Health is now: " + str(health))
+	print(MiniGame.MiniGameType.find_key(minigame_type))
+
 
 #Code to instantiate the next game
 func _next_game() -> void:
@@ -30,7 +38,11 @@ func _next_game() -> void:
 	print("i is " + str(i))
 	match int(i):
 		0:
-			var popup_instance : Node2D = pop_up_scene.instantiate()
+			var popup_instance : MiniGame = pop_up_scene.instantiate()
+			# connect base minigame signal to manager function
+			popup_instance.lose_life.connect(minigame_failure)
+			#popup_instance.audience_member_irritated = 
+			
 			#randomise position between defined boundaries
 			#random range between 2 x co-ords and 2 y co-ords
 			popup_instance.position = Vector2(25,25)
@@ -40,6 +52,8 @@ func _next_game() -> void:
 			#load pop_up_scene
 		1:
 			var swipe_instance : Node2D = swipe_scene.instantiate()
+			swipe_instance.lose_life.connect(minigame_failure)
+			
 			get_parent().add_child(swipe_instance)
 			print("add swipe game")
 			#load swipte_mini_game
@@ -82,6 +96,7 @@ func _next_game() -> void:
 func _on_question_input_end(player_answer):
 	if player_answer == false:
 		#health -= 1
+		minigame_failure(MiniGame.MiniGameType.QUESTION)
 		pass
 	else:
 		#Nothing?

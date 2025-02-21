@@ -1,4 +1,4 @@
-extends Node2D
+extends MiniGame
 
 @onready var swipeable_object : SwipeableObject = $SwipeableObject
 @onready var end_swipe_area = $EndSwipeArea
@@ -8,6 +8,8 @@ var swipeable_sprite : Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	m_type = MiniGameType.SWIPE
+	lose_life.emit(m_type)
 	swipeable_sprite = swipeable_object.get_child(0)
 
 
