@@ -1,9 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://b0mds32lmdvo3"]
+[gd_scene load_steps=39 format=3 uid="uid://b0mds32lmdvo3"]
 
 [ext_resource type="Texture2D" uid="uid://dd7wvfiqr5ps8" path="res://Assets/Sprites/PresentationScreens/screen#1(pie-charts).png" id="1_qkg3i"]
 [ext_resource type="Script" path="res://scripts/presentation_slides.gd" id="1_vlw7v"]
 [ext_resource type="Texture2D" uid="uid://bncnqj86dkrar" path="res://Assets/Sprites/PresentationScreens/screen#2(money).png" id="3_5hcat"]
 [ext_resource type="Texture2D" uid="uid://cetclcp5dcs7f" path="res://Assets/Spritesheets/Slide Countdown.png" id="4_ggb20"]
+[ext_resource type="Texture2D" uid="uid://e5dnfq0r8g0y" path="res://Assets/Sprites/PresentationScreens/screen(line-chart).png" id="4_nwecb"]
+[ext_resource type="Texture2D" uid="uid://btskhrf083hvf" path="res://Assets/Sprites/PresentationScreens/BAD SLIDE (Kid drawing).png" id="5_8dwoo"]
 [ext_resource type="Texture2D" uid="uid://8usvqwxyr2nl" path="res://Assets/Spritesheets/space_bar spritesheet.png" id="5_57ajp"]
 [ext_resource type="Texture2D" uid="uid://dc6cr4ajtdckk" path="res://Assets/Sprites/space_bar RED X.png" id="6_fkfim"]
 
@@ -229,7 +231,7 @@ animations = [{
 [node name="spr_presentation" type="Sprite2D"]
 texture = ExtResource("1_qkg3i")
 script = ExtResource("1_vlw7v")
-slides = Array[Texture]([ExtResource("1_qkg3i"), ExtResource("3_5hcat")])
+slides = Array[Texture]([ExtResource("1_qkg3i"), ExtResource("3_5hcat"), ExtResource("4_nwecb"), ExtResource("5_8dwoo")])
 
 [node name="tmr_slides" type="Timer" parent="."]
 wait_time = 3.0

@@ -40,7 +40,10 @@ func minigame_failure(minigame_type) -> void:
 
 #Code to instantiate the next game
 func _next_game() -> void:
-	if swipe_instance:
+	var add_slide_back : bool = false
+	
+	if is_instance_valid(swipe_instance):
+		add_slide_back = true
 		minigames_arr.pop_at(1)
 	
 	var i = minigames_arr.pick_random()
@@ -102,7 +105,7 @@ func _next_game() -> void:
 			get_parent().add_child(answer_instance)
 			get_parent().add_child(question_instance)
 		
-	if swipe_instance:
+	if add_slide_back:
 		minigames_arr.insert(1, 1)
 
 
