@@ -1,38 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0mds32lmdvo3"]
+[gd_scene load_steps=4 format=3 uid="uid://b0mds32lmdvo3"]
 
+[ext_resource type="Texture2D" uid="uid://dd7wvfiqr5ps8" path="res://Assets/Sprites/PresentationScreens/screen#1(pie-charts).png" id="1_qkg3i"]
 [ext_resource type="Script" path="res://scripts/presentation_slides.gd" id="1_vlw7v"]
-
-[sub_resource type="Gradient" id="Gradient_4y8vc"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_1j4hy"]
-gradient = SubResource("Gradient_4y8vc")
-
-[sub_resource type="Gradient" id="Gradient_l5tf7"]
-offsets = PackedFloat32Array(0.97545, 1)
-colors = PackedColorArray(0, 0.739523, 0.674553, 1, 0.639935, 0.639935, 0.639935, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_utffs"]
-gradient = SubResource("Gradient_l5tf7")
-
-[sub_resource type="Gradient" id="Gradient_lfxos"]
-offsets = PackedFloat32Array(0.0114566, 0.948571)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_x03gg"]
-gradient = SubResource("Gradient_lfxos")
-
-[sub_resource type="Gradient" id="Gradient_50gyp"]
-offsets = PackedFloat32Array(0, 0.485714, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_l8r1h"]
-gradient = SubResource("Gradient_50gyp")
+[ext_resource type="Texture2D" uid="uid://bncnqj86dkrar" path="res://Assets/Sprites/PresentationScreens/screen#2(money).png" id="3_5hcat"]
 
 [node name="spr_presentation" type="Sprite2D"]
-position = Vector2(190.539, 111)
-scale = Vector2(1.44953, 208)
-texture = SubResource("GradientTexture1D_1j4hy")
+texture = ExtResource("1_qkg3i")
 script = ExtResource("1_vlw7v")
-slides = Array[Texture]([SubResource("GradientTexture1D_utffs"), SubResource("GradientTexture1D_x03gg"), SubResource("GradientTexture1D_l8r1h")])
+slides = Array[Texture]([ExtResource("1_qkg3i"), ExtResource("3_5hcat")])
 
 [node name="tmr_slides" type="Timer" parent="."]
 one_shot = true
