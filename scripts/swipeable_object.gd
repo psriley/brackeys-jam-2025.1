@@ -11,12 +11,14 @@ var swipe_area_scene : PackedScene
 
 var swiping = false  # Tracks if the object is being swiped
 var camera : Camera2D
+var position_offset : float
 
 
 func _ready() -> void:
 	var swipe_area_scene = load("res://scenes/swipe_area.tscn")
 	area_2d.add_to_group("swipeable_objects")
 	camera = get_viewport().get_camera_2d()
+	position_offset = position.y
 	
 	if start_in_drop_area:
 		swipe_area_instance = swipe_area_scene.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
@@ -30,14 +32,23 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if swiping:
-		var mousepos = get_viewport().get_mouse_position()
-		if camera:
-			mousepos = get_viewport().get_camera_2d().get_global_mouse_position()
-		self.position = Vector2(self.position.x, mousepos.y)
+	pass
+	#if swiping:
+		#var mousepos = get_viewport().get_mouse_position()
+		#if camera:
+			##mousepos = get_local_mouse_position()
+			#mousepos = get_canvas_item()
+			##mousepos = get_viewport().get_camera_2d().get_global_mouse_position()
+		#self.position = Vector2(self.position.x, mousepos.y)
 
 
 func _input(event: InputEvent) -> void:
+	if swiping:
+		var mousepos = get_global_mouse_position()
+		if camera:
+			mousepos = get_viewport().get_camera_2d().get_global_mouse_position()
+		self.position = Vector2(self.position.x, (mousepos.y / global_scale.y) - get_parent().position_offset.y)
+	
 	if event is InputEventMouseButton:
 		if swiping and event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
 			swiping = false

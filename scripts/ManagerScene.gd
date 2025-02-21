@@ -33,8 +33,8 @@ func minigame_failure(minigame_type) -> void:
 
 #Code to instantiate the next game
 func _next_game() -> void:
-	var i = randf_range(0.0,2.0)
-	#var i = 0
+	#var i = randf_range(0.0,2.0)
+	var i = 1
 	print("i is " + str(i))
 	match int(i):
 		0:
@@ -55,6 +55,8 @@ func _next_game() -> void:
 			swipe_instance.lose_life.connect(minigame_failure)
 			
 			get_parent().add_child(swipe_instance)
+			swipe_instance.position_offset = Vector2(57,15)
+			swipe_instance.position = swipe_instance.position_offset
 			print("add swipe game")
 			#load swipte_mini_game
 		2:

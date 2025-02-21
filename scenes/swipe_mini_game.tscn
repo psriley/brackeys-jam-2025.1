@@ -8,9 +8,10 @@
 script = ExtResource("1_dkaao")
 
 [node name="EndSwipeArea" parent="." instance=ExtResource("2_t4a8p")]
-position = Vector2(528, 154)
+z_index = -1
+position = Vector2(0, -23)
+scale = Vector2(25, 8)
 
 [node name="SwipeableObject" parent="." instance=ExtResource("1_8enh6")]
-z_index = 5
-position = Vector2(532, 429)
+scale = Vector2(1, 1)
 start_in_drop_area = true

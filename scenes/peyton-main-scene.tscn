@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bum0ta86nmle1"]
+[gd_scene load_steps=12 format=3 uid="uid://bum0ta86nmle1"]
 
 [ext_resource type="Texture2D" uid="uid://b45fw756ngvgs" path="res://Assets/Sprites/placeholder-main-scene#2.png" id="1_ykboh"]
-[ext_resource type="PackedScene" uid="uid://dmvolwdrk0j2v" path="res://scenes/swipeable_object.tscn" id="2_mdhsn"]
 [ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="2_mebpk"]
 [ext_resource type="Texture2D" uid="uid://gsdypvj03o0x" path="res://Assets/Sprites/tv-edge.png" id="3_tpho3"]
 [ext_resource type="PackedScene" uid="uid://b0mds32lmdvo3" path="res://scenes/presentation_projection.tscn" id="3_w2f5d"]
@@ -30,9 +29,20 @@ position = Vector2(45.1, 26.5)
 scale = Vector2(80, 45)
 texture = ExtResource("2_mebpk")
 
+[node name="spr_presentation" parent="ScaledSprites" instance=ExtResource("3_w2f5d")]
+position = Vector2(45.1, 26.5)
+
 [node name="TVEdge" type="Sprite2D" parent="ScaledSprites"]
+z_index = 2
 position = Vector2(45.1, 26.5)
 texture = ExtResource("3_tpho3")
+
+[node name="TopEdge" type="Sprite2D" parent="ScaledSprites"]
+modulate = Color(1, 0.894118, 0.796078, 1)
+z_index = 1
+position = Vector2(45.1, 3)
+scale = Vector2(80, 8)
+texture = ExtResource("2_mebpk")
 
 [node name="AudienceMember#1" type="Sprite2D" parent="ScaledSprites"]
 position = Vector2(4.89542, 64.9755)
@@ -56,14 +66,17 @@ shape = SubResource("RectangleShape2D_gvow8")
 [node name="Manager" parent="ScaledSprites/Area2D" instance=ExtResource("3_w4jnw")]
 
 [node name="ButtonAd" type="Sprite2D" parent="ScaledSprites"]
+visible = false
 position = Vector2(21.3333, 16)
 texture = ExtResource("6_ouhub")
 
 [node name="MoneyAd" type="Sprite2D" parent="ScaledSprites"]
+visible = false
 position = Vector2(26.622, 34.167)
 texture = ExtResource("7_30iuk")
 
 [node name="ThinAd" type="Sprite2D" parent="ScaledSprites"]
+visible = false
 position = Vector2(64, 34.6667)
 texture = ExtResource("8_o6jb7")
 
@@ -71,13 +84,5 @@ texture = ExtResource("8_o6jb7")
 position = Vector2(192, 108)
 zoom = Vector2(3, 3)
 
-[node name="spr_presentation" parent="." instance=ExtResource("3_w2f5d")]
-visible = false
-position = Vector2(105, 68)
-scale = Vector2(0.693405, 99.5)
-
 [node name="Node2D" parent="." instance=ExtResource("7_sfotf")]
 position = Vector2(56, 177)
-
-[node name="SwipeableObject" parent="." instance=ExtResource("2_mdhsn")]
-position = Vector2(173.64, 45.63)
