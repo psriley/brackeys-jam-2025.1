@@ -53,7 +53,7 @@ input_pickable = false
 position = Vector2(45.0453, 26.48)
 shape = SubResource("RectangleShape2D_gvow8")
 
-[node name="Node" parent="ScaledSprites/Area2D" instance=ExtResource("3_w4jnw")]
+[node name="Manager" parent="ScaledSprites/Area2D" instance=ExtResource("3_w4jnw")]
 
 [node name="ButtonAd" type="Sprite2D" parent="ScaledSprites"]
 position = Vector2(21.3333, 16)

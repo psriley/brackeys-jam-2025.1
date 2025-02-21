@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ManagerScene.gd" id="1_uvpon"]
 
-[node name="Node" type="Node"]
+[node name="Manager" type="Node"]
 script = ExtResource("1_uvpon")
 
 [node name="tmr_next_game" type="Timer" parent="."]
