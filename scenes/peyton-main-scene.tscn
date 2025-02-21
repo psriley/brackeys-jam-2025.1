@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bum0ta86nmle1"]
+[gd_scene load_steps=13 format=3 uid="uid://bum0ta86nmle1"]
 
 [ext_resource type="Texture2D" uid="uid://b45fw756ngvgs" path="res://Assets/Sprites/placeholder-main-scene#2.png" id="1_ykboh"]
 [ext_resource type="PackedScene" uid="uid://dmvolwdrk0j2v" path="res://scenes/swipeable_object.tscn" id="2_mdhsn"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://b0mds32lmdvo3" path="res://scenes/presentation_projection.tscn" id="3_w2f5d"]
 [ext_resource type="PackedScene" uid="uid://ccyioibeiq38r" path="res://scenes/manager.tscn" id="3_w4jnw"]
 [ext_resource type="Texture2D" uid="uid://cpbgn08mntpgv" path="res://Assets/Sprites/audience-member.png" id="5_b156c"]
+[ext_resource type="Texture2D" uid="uid://b6fa2ax3rvh0k" path="res://Assets/Sprites/button-ad.png" id="6_ouhub"]
+[ext_resource type="Texture2D" uid="uid://bemdxfvo8ykmn" path="res://Assets/Sprites/free-money-ad.png" id="7_30iuk"]
 [ext_resource type="PackedScene" uid="uid://cyx5mca01sqqo" path="res://scenes/question_display.tscn" id="7_sfotf"]
+[ext_resource type="Texture2D" uid="uid://cfvlvmw6dg57h" path="res://Assets/Sprites/thin-ad.png" id="8_o6jb7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvow8"]
 size = Vector2(72.0907, 36.9381)
@@ -52,6 +55,18 @@ shape = SubResource("RectangleShape2D_gvow8")
 
 [node name="Node" parent="ScaledSprites/Area2D" instance=ExtResource("3_w4jnw")]
 
+[node name="Sprite2D" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(21.3333, 16)
+texture = ExtResource("6_ouhub")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(26.622, 34.167)
+texture = ExtResource("7_30iuk")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(64, 34.6667)
+texture = ExtResource("8_o6jb7")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(192, 108)
 zoom = Vector2(3, 3)
@@ -61,9 +76,8 @@ visible = false
 position = Vector2(105, 68)
 scale = Vector2(0.693405, 99.5)
 
-[node name="SwipeableObject" parent="." instance=ExtResource("2_mdhsn")]
-position = Vector2(204, 35)
-scale = Vector2(0.145, 0.145)
-
 [node name="Node2D" parent="." instance=ExtResource("7_sfotf")]
 position = Vector2(56, 177)
+
+[node name="SwipeableObject" parent="." instance=ExtResource("2_mdhsn")]
+position = Vector2(173.64, 45.63)
