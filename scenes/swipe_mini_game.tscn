@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://e3yibrklrx4e" path="res://scenes/swipe_area.tscn" id="2_t4a8p"]
 
 [node name="SwipeMiniGame" type="Node2D" groups=["droppable"]]
+z_index = 1
 script = ExtResource("1_dkaao")
 
 [node name="EndSwipeArea" parent="." instance=ExtResource("2_t4a8p")]
