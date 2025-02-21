@@ -2,6 +2,7 @@ extends Sprite2D
 var tmr_slides
 var tmr_input
 var slide_indicator
+signal lose_life
 
 @export var slides: Array[Texture] = []
 
@@ -30,30 +31,34 @@ func _on_tmr_slides_timeout() -> void:
 	slide_indicator.play("space_bar", 0)
 
 
-func change_slide() -> void:
+func change_slide() -> bool:
 	var new_slide = slides[randf_range(0,2)]
 
 	while self.texture == new_slide:
 		new_slide = slides[randf_range(0,2)]
+	if new_slide > 2:
+		#set countdown to 
+		pass
 	self.texture = new_slide
+	return true
 
 #Frames/(FPS*Speedscale) = time
 #FPS set in the animation iteslf
 func reset_timer() -> void:
+	var good_slide_bool = change_slide()
 	var temp_SS = randf_range(3.0,10.0)
+		
 	tmr_slides.wait_time = (28/temp_SS)
-
-
 	slide_indicator.set_speed_scale(temp_SS)
-	#print("TIMER SPEED IS: " + str(temp_SS))
-	change_slide()
+	
+	
 	tmr_slides.start()
 	slide_indicator.play("progress_bar")
 
 
 func _on_tmr_input_timeout() -> void:
 	#Lose a life and resent the slides timer
-	print("Failed to input in time! -1 life")
+	lose_life.emit()
 	slide_indicator.set_speed_scale(1)
 	slide_indicator.play("space_bar")
 	await get_tree().create_timer(1.0).timeout
