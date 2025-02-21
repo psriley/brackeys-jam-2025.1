@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyx5mca01sqqo"]
 
-[ext_resource type="Script" path="res://scenes/update_question_text.gd" id="1_6inrw"]
+[ext_resource type="Script" path="res://scripts/update_question_text.gd" id="1_6inrw"]
 [ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="1_rpq0d"]
 [ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="2_bh6ai"]
 

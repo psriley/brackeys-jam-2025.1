@@ -1,26 +1,29 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmvolwdrk0j2v"]
 
 [ext_resource type="Script" path="res://scripts/swipeable_object.gd" id="1_ouohm"]
-[ext_resource type="Texture2D" uid="uid://cijvogijan2ae" path="res://Assets/Sprites/message-notification-bubble.png" id="2_ys13o"]
+[ext_resource type="Texture2D" uid="uid://bxu0m7ihiakpx" path="res://Assets/Sprites/notification.png" id="2_ht30q"]
 [ext_resource type="Texture2D" uid="uid://cfwelnmv2wsxi" path="res://Assets/Sprites/message-notification-text.png" id="3_stvnu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ap84x"]
+size = Vector2(11.5462, 14)
 
 [node name="SwipeableObject" type="Node2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_ouohm")
 
 [node name="BackgroundBox" type="Sprite2D" parent="."]
-texture = ExtResource("2_ys13o")
+texture = ExtResource("2_ht30q")
 
 [node name="TextMessage" type="Sprite2D" parent="BackgroundBox"]
-position = Vector2(34, 1)
-scale = Vector2(0.805, 0.805)
+position = Vector2(4, 0)
+scale = Vector2(0.058, 0.058)
 texture = ExtResource("3_stvnu")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(25.535, 6.415)
+position = Vector2(9.53674e-07, 0)
+scale = Vector2(3.984, 1)
 shape = SubResource("RectangleShape2D_ap84x")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
