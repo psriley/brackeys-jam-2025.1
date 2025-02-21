@@ -32,16 +32,19 @@ func _on_tmr_slides_timeout() -> void:
 
 
 func change_slide() -> bool:
-	var new_slide = slides[randf_range(0,2)]
+	var temp_int = randi_range(0,3)
+	var new_slide = slides[temp_int]
+	var good_slide:  bool = true
 
 	while self.texture == new_slide:
-		new_slide = slides[randf_range(0,2)]
+		temp_int = randi_range(0,3)
+		new_slide = slides[temp_int]
 	#
-	if new_slide > 2:
-		return false
+	if temp_int == 3:
+		good_slide = false
 		
 	self.texture = new_slide
-	return true
+	return good_slide
 
 #Frames/(FPS*Speedscale) = time
 #FPS set in the animation iteslf
