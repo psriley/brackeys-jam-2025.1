@@ -16,6 +16,13 @@ var dict_questions = {
 }
 #Empty node for minigames:
 var question_instance : Node2D
+var swipe_instance : Node2D
+
+var num_minigames : int = 3
+var minigames_arr : Array[int]
+
+func _ready() -> void:
+	minigames_arr = [0, 1, 2]
 
 func _on_tmr_next_game_timeout() -> void:
 	print("time's up!")
@@ -33,8 +40,10 @@ func minigame_failure(minigame_type) -> void:
 
 #Code to instantiate the next game
 func _next_game() -> void:
-	#var i = randf_range(0.0,2.0)
-	var i = 1
+	if swipe_instance:
+		minigames_arr.pop_at(1)
+	
+	var i = minigames_arr.pick_random()
 	print("i is " + str(i))
 	match int(i):
 		0:
@@ -51,7 +60,7 @@ func _next_game() -> void:
 			print("add pop up")
 			#load pop_up_scene
 		1:
-			var swipe_instance : Node2D = swipe_scene.instantiate()
+			swipe_instance = swipe_scene.instantiate()
 			swipe_instance.lose_life.connect(minigame_failure)
 			
 			get_parent().add_child(swipe_instance)
@@ -91,7 +100,10 @@ func _next_game() -> void:
 			#instantiate
 			#get parent can be a direct reference instead
 			get_parent().add_child(answer_instance)
-			get_parent().add_child(question_instance)	
+			get_parent().add_child(question_instance)
+		
+	if swipe_instance:
+		minigames_arr.insert(1, 1)
 
 
 

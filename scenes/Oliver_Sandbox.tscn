@@ -32,7 +32,6 @@ texture = ExtResource("2_jfaqy")
 
 [node name="spr_presentation" parent="ScaledSprites" instance=ExtResource("9_6pai7")]
 position = Vector2(45.1, 26.5)
-scale = Vector2(1, 1)
 
 [node name="TVEdge" type="Sprite2D" parent="ScaledSprites"]
 position = Vector2(45.1, 26.5)
