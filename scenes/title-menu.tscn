@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://bmdjxsbdaj8wb"]
+[gd_scene load_steps=3 format=3 uid="uid://bmdjxsbdaj8wb"]
+
+[ext_resource type="Texture2D" uid="uid://bhtb6dsgoy8ts" path="res://Assets/Sprites/title-menu.png" id="1_n2fki"]
+[ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="2_5nc1l"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,3 +10,73 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_n2fki")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 48.0
+offset_right = 906.0
+offset_bottom = 138.0
+theme = ExtResource("2_5nc1l")
+theme_override_font_sizes/font_size = 80
+text = "Presentation Game"
+
+[node name="Start" type="Label" parent="."]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 160.0
+offset_right = 503.0
+offset_bottom = 228.0
+theme = ExtResource("2_5nc1l")
+theme_override_font_sizes/font_size = 60
+text = "Start"
+
+[node name="Panel" type="Panel" parent="Start"]
+layout_mode = 0
+offset_left = -208.0
+offset_top = -32.0
+offset_right = 600.0
+offset_bottom = 96.0
+
+[node name="Instructions" type="Label" parent="."]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 304.0
+offset_right = 676.0
+offset_bottom = 372.0
+theme = ExtResource("2_5nc1l")
+theme_override_font_sizes/font_size = 60
+text = "Instructions"
+
+[node name="Panel2" type="Panel" parent="Instructions"]
+layout_mode = 0
+offset_left = -208.0
+offset_top = -40.0
+offset_right = 600.0
+offset_bottom = 88.0
+
+[node name="Quit" type="Label" parent="."]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 448.0
+offset_right = 473.0
+offset_bottom = 516.0
+theme = ExtResource("2_5nc1l")
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+
+[node name="Panel3" type="Panel" parent="Quit"]
+layout_mode = 0
+offset_left = -208.0
+offset_top = -48.0
+offset_right = 600.0
+offset_bottom = 96.0
