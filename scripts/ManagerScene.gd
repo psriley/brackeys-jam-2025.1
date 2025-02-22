@@ -46,7 +46,9 @@ func minigame_failure(minigame_ref : MiniGame) -> void:
 	health -= 1
 	#remove audience member
 	#minigame_ref.audience_member_upset.queue_free()
-	audience.pick_random().queue_free()
+	#audience.pick_random().queue_free()
+	audience[0].queue_free()
+	audience.pop_at(0)
 	var minigame_int: int = cur_minigame_instances.find(minigame_ref)
 	cur_minigame_instances.pop_at(minigame_int)
 	
