@@ -1,5 +1,6 @@
 extends MiniGame
 
+var sfx_spawn : AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	tmr_time = 2
@@ -7,6 +8,9 @@ func _ready() -> void:
 	m_type = MiniGameType.POP_UP
 	anger_bar = get_child(1)
 	setup_anger_bar()
+	sfx_spawn = get_child(2)
+	sfx_spawn.play()
+	
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

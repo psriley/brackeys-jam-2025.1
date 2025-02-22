@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdxt41dw62tvk"]
+[gd_scene load_steps=6 format=3 uid="uid://cdxt41dw62tvk"]
 
 [ext_resource type="Script" path="res://scripts/pop_up_mini_game.gd" id="1_0jfp0"]
 [ext_resource type="Texture2D" uid="uid://bemdxfvo8ykmn" path="res://Assets/Sprites/free-money-ad.png" id="2_minn3"]
 [ext_resource type="PackedScene" uid="uid://cc4b2jatu4dag" path="res://scenes/bar_indicator.tscn" id="3_ola71"]
+[ext_resource type="AudioStream" uid="uid://cvqqp4pdsby5d" path="res://Assets/Audio/583554__thehorriblejoke__notification-sound.wav" id="4_58d7m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twr8j"]
 size = Vector2(6, 6)
@@ -21,5 +22,8 @@ shape = SubResource("RectangleShape2D_twr8j")
 
 [node name="NextSlideIndicator" parent="." instance=ExtResource("3_ola71")]
 position = Vector2(0, 14)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_58d7m")
 
 [connection signal="input_event" from="Sprite2D/Area2D" to="." method="_on_area_2d_input_event"]

@@ -3,6 +3,8 @@ extends MiniGame
 @onready var swipeable_object : SwipeableObject = $SwipeableObject
 @onready var end_swipe_area = $EndSwipeArea
 
+var sfx_spawn : AudioStreamPlayer
+
 var swipeable_sprite : Sprite2D
 
 
@@ -15,6 +17,8 @@ func _ready() -> void:
 	swipeable_sprite = swipeable_object.get_child(0)
 	anger_bar = get_child(1).get_child(2)
 	setup_anger_bar()
+	sfx_spawn = get_child(2)
+	sfx_spawn.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

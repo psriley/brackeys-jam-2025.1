@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://drd7u6hbc8yn8"]
+[gd_scene load_steps=6 format=3 uid="uid://drd7u6hbc8yn8"]
 
 [ext_resource type="PackedScene" uid="uid://dmvolwdrk0j2v" path="res://scenes/swipeable_object.tscn" id="1_8enh6"]
 [ext_resource type="Script" path="res://scripts/swipe_mini_game.gd" id="1_dkaao"]
 [ext_resource type="PackedScene" uid="uid://e3yibrklrx4e" path="res://scenes/swipe_area.tscn" id="2_t4a8p"]
 [ext_resource type="PackedScene" uid="uid://cc4b2jatu4dag" path="res://scenes/bar_indicator.tscn" id="4_kc8uk"]
+[ext_resource type="AudioStream" uid="uid://dgollm8x5yrbi" path="res://Assets/Audio/113986__kastenfrosch__chatton.mp3" id="5_v3rl4"]
 
 [node name="SwipeMiniGame" type="Node2D" groups=["droppable"]]
 z_index = 1
@@ -20,3 +21,6 @@ start_in_drop_area = true
 
 [node name="NextSlideIndicator" parent="SwipeableObject" instance=ExtResource("4_kc8uk")]
 position = Vector2(0, 10)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_v3rl4")
