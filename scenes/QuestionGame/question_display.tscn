@@ -1,15 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyx5mca01sqqo"]
+[gd_scene load_steps=10 format=3 uid="uid://cyx5mca01sqqo"]
 
 [ext_resource type="Script" path="res://scripts/update_question_text.gd" id="1_6inrw"]
 [ext_resource type="Texture2D" uid="uid://budsa1xq37hus" path="res://Assets/Sprites/Question_Bubble.png" id="2_3y5y8"]
 [ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="2_bh6ai"]
+[ext_resource type="Texture2D" uid="uid://ci8fvwugxdi2h" path="res://Assets/Sprites/thought_cloud.png" id="4_ovsc2"]
+[ext_resource type="Texture2D" uid="uid://keowngrdydy5" path="res://Assets/Sprites/tiny_cloud_trail.png" id="5_clhld"]
+[ext_resource type="Texture2D" uid="uid://dqiongnl70wau" path="res://Assets/Sprites/answer_sprites/Answer Pig.png" id="6_8qse2"]
+[ext_resource type="Texture2D" uid="uid://e7cj1jbnurhj" path="res://Assets/Sprites/answer_sprites/answer_cow.png" id="7_cnvme"]
+[ext_resource type="Texture2D" uid="uid://m8i313nbcssl" path="res://Assets/Sprites/answer_sprites/answer_dog.png" id="8_hogsn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ppgn"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_6inrw")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="QuestionBubble" type="Sprite2D" parent="."]
 position = Vector2(203.5, 92.5)
 scale = Vector2(3.63393, 3.85417)
 texture = ExtResource("2_3y5y8")
@@ -24,3 +29,53 @@ theme_override_colors/default_color = Color(0, 0, 0.054902, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_6ppgn")
 text = "This is a question for the player."
 metadata/_edit_use_anchors_ = true
+
+[node name="Answer1" type="Sprite2D" parent="."]
+position = Vector2(896, -46)
+scale = Vector2(12.875, 13.5192)
+texture = ExtResource("4_ovsc2")
+
+[node name="Trail Cloud" type="Sprite2D" parent="Answer1"]
+position = Vector2(8.62136, -8.65434)
+scale = Vector2(0.662621, 0.601351)
+texture = ExtResource("5_clhld")
+
+[node name="Sprite2D" type="Sprite2D" parent="Answer1"]
+position = Vector2(-0.828041, -0.476056)
+scale = Vector2(0.23352, 0.228545)
+texture = ExtResource("6_8qse2")
+
+[node name="Answer2" type="Sprite2D" parent="."]
+position = Vector2(971, 123)
+scale = Vector2(12.875, 13.5192)
+texture = ExtResource("4_ovsc2")
+
+[node name="Trail Cloud" type="Sprite2D" parent="Answer2"]
+position = Vector2(5.35923, -9.24609)
+scale = Vector2(0.646845, 0.50409)
+texture = ExtResource("5_clhld")
+
+[node name="Trail Cloud2" type="Sprite2D" parent="Answer2"]
+position = Vector2(7.53398, -16.495)
+scale = Vector2(0.59466, 0.564367)
+texture = ExtResource("5_clhld")
+
+[node name="Sprite2D" type="Sprite2D" parent="Answer2"]
+position = Vector2(-0.0832872, -0.490518)
+scale = Vector2(0.257978, 0.275263)
+texture = ExtResource("7_cnvme")
+
+[node name="Answer3" type="Sprite2D" parent="."]
+position = Vector2(1206, 15)
+scale = Vector2(12.875, 13.5192)
+texture = ExtResource("4_ovsc2")
+
+[node name="Trail Cloud" type="Sprite2D" parent="Answer3"]
+position = Vector2(-4.8932, -11.1693)
+scale = Vector2(0.671117, 0.633535)
+texture = ExtResource("5_clhld")
+
+[node name="Sprite2D" type="Sprite2D" parent="Answer3"]
+position = Vector2(-0.828041, -0.476056)
+scale = Vector2(0.23352, 0.228545)
+texture = ExtResource("8_hogsn")

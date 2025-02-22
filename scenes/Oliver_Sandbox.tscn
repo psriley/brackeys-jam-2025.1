@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dncriyn6e68wy"]
+[gd_scene load_steps=9 format=3 uid="uid://dncriyn6e68wy"]
 
 [ext_resource type="Texture2D" uid="uid://b45fw756ngvgs" path="res://Assets/Sprites/placeholder-main-scene#2.png" id="1_exdbj"]
 [ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="2_jfaqy"]
 [ext_resource type="Texture2D" uid="uid://gsdypvj03o0x" path="res://Assets/Sprites/tv-edge.png" id="3_akgrq"]
 [ext_resource type="PackedScene" uid="uid://cmftvj4xa0slv" path="res://scenes/audience_member.tscn" id="5_6a7tr"]
 [ext_resource type="PackedScene" uid="uid://ccyioibeiq38r" path="res://scenes/manager.tscn" id="5_ahbrb"]
+[ext_resource type="PackedScene" uid="uid://cyx5mca01sqqo" path="res://scenes/QuestionGame/question_display.tscn" id="7_axivf"]
 [ext_resource type="PackedScene" uid="uid://b0mds32lmdvo3" path="res://scenes/presentation_projection.tscn" id="9_6pai7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvow8"]
@@ -56,5 +57,9 @@ shape = SubResource("RectangleShape2D_gvow8")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(192, 108)
 zoom = Vector2(3, 3)
+
+[node name="Node2D" parent="." instance=ExtResource("7_axivf")]
+position = Vector2(49, 164)
+scale = Vector2(0.25, 0.25)
 
 [connection signal="failed_slide" from="ScaledSprites/spr_presentation" to="ScaledSprites/Area2D/Manager" method="_on_spr_presentation_failed_slide"]

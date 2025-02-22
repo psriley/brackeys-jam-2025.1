@@ -3,7 +3,7 @@ var tmr_slides
 var tmr_input
 var slide_indicator
 signal failed_slide
-
+var sfx_spawn : AudioStreamPlayer
 @export var slides: Array[Texture] = []
 
 # Called when the node enters the scene tree for the first time.
@@ -20,11 +20,14 @@ func _ready() -> void:
 	#Play slide animation and timer
 	tmr_slides.start()
 	slide_indicator.play("progress_bar")
+	sfx_spawn = get_child(3)
+	
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("spacebar_press") && tmr_input.time_left > 0.01:
 		reset_timer()
 		tmr_input.stop()
+		sfx_spawn.play()
 
 func _on_tmr_slides_timeout() -> void:
 	tmr_input.start()
