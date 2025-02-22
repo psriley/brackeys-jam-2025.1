@@ -67,6 +67,7 @@ func reset_timer() -> void:
 func _on_tmr_input_timeout() -> void:
 	#Lose a life and resent the slides timer
 	failed_slide.emit()
+	#Play X animation over the space bar
 	slide_indicator.set_speed_scale(1)
 	slide_indicator.play("space_bar")
 	await get_tree().create_timer(1.0).timeout

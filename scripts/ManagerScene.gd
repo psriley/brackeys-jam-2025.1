@@ -47,6 +47,10 @@ func minigame_failure(minigame_ref : MiniGame) -> void:
 	#minigame_ref.audience_member_upset.queue_free()
 	var audience_int : int = audience.find(minigame_ref.audience_member_upset)
 	audience.pop_at(audience_int)
+	
+	var minigame_int: int = cur_minigame_instances.find(minigame_ref)
+	cur_minigame_instances.pop_at(minigame_int)
+	
 	print("Health is now: " + str(health) + " because of " + MiniGame.MiniGameType.find_key(minigame_ref.m_type))
 
 
@@ -63,12 +67,14 @@ func _next_game() -> void:
 		minigames_arr.pop_at(1)
 	
 	var i : int = minigames_arr.pick_random()
-	#var i : int = 0
+	#var i : int = 1
 	
 	var cur_minigame_instance : MiniGame = create_minigame_instance(i)
 	cur_minigame_instances.append(cur_minigame_instance)
 	
 	cur_minigame_instance.audience_member_upset = audience[0]
+	cur_minigame_instance._setup_audience_bar()
+	cur_minigame_instance.tmr_success.start()
 
 	if add_slide_back:
 		minigames_arr.insert(1, 1)

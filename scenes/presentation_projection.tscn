@@ -244,8 +244,7 @@ one_shot = true
 [node name="NextSlideIndicator" type="AnimatedSprite2D" parent="."]
 position = Vector2(67, -17)
 sprite_frames = SubResource("SpriteFrames_r7qed")
-animation = &"space_bar"
-frame_progress = 0.402718
+animation = &"progress_bar"
 
 [connection signal="timeout" from="tmr_slides" to="." method="_on_tmr_slides_timeout"]
 [connection signal="timeout" from="tmr_input" to="." method="_on_tmr_input_timeout"]
