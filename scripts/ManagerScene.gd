@@ -3,6 +3,7 @@ extends Node
 @onready var audience_positions : Node2D = $"../../AudiencePositions"
 
 @export var health: int = 3
+@export var tmr_weight: float = 1
 @export var audience : Array[Sprite2D] = []
 #preload all minigames:
 var pop_up_scenes = [preload("res://scenes/PopupGames/pop_up_mini_game1.tscn"), preload("res://scenes/PopupGames/pop_up_mini_game2.tscn"), preload("res://scenes/PopupGames/pop_up_mini_game3.tscn")]
@@ -36,7 +37,7 @@ func _ready() -> void:
 
 
 func _on_tmr_next_game_timeout() -> void:
-	timer.wait_time = randf_range(2.0,6.0)
+	timer.wait_time = randf_range(0.5,3.0)
 	_next_game()
 	timer.start()
 
@@ -45,8 +46,6 @@ func minigame_failure(minigame_ref : MiniGame) -> void:
 	health -= 1
 	#remove audience member
 	#minigame_ref.audience_member_upset.queue_free()
-	var audience_int : int = audience.find(minigame_ref.audience_member_upset)
-	audience.pop_at(audience_int)
 	
 	var minigame_int: int = cur_minigame_instances.find(minigame_ref)
 	cur_minigame_instances.pop_at(minigame_int)
@@ -72,9 +71,14 @@ func _next_game() -> void:
 	var cur_minigame_instance : MiniGame = create_minigame_instance(i)
 	cur_minigame_instances.append(cur_minigame_instance)
 	
-	cur_minigame_instance.audience_member_upset = audience[0]
+	if(is_instance_valid(audience[0])):
+		cur_minigame_instance.audience_member_upset = audience[0]
+		audience.pop_at(0)
+	else:
+		printerr("Audience not valid, can't spawn game")
 	cur_minigame_instance._setup_audience_bar()
 	cur_minigame_instance.tmr_success.start()
+	cur_minigame_instance.tmr_weight = tmr_weight
 
 	if add_slide_back:
 		minigames_arr.insert(1, 1)
@@ -161,6 +165,9 @@ func create_minigame_instance(m_type : int) -> MiniGame:
 
 
 func _on_spr_presentation_failed_slide() -> void:
-	for i in cur_minigame_instances:
-		i._slide_failed()
+	if tmr_weight > 0.4:
+		tmr_weight -= 0.1
+	#for i in cur_minigame_instances:
+		#if(is_instance_valid(i)):
+			#i._slide_failed()
 		

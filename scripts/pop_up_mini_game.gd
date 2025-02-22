@@ -12,4 +12,5 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	#if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 	if Input.is_action_pressed("mouse_click"):
 		tmr_success.stop()
+		_game_success()
 		self.queue_free()

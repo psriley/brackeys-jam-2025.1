@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://dncriyn6e68wy"]
+
+[ext_resource type="Texture2D" uid="uid://b45fw756ngvgs" path="res://Assets/Sprites/placeholder-main-scene#2.png" id="1_exdbj"]
+[ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="2_jfaqy"]
+[ext_resource type="Texture2D" uid="uid://gsdypvj03o0x" path="res://Assets/Sprites/tv-edge.png" id="3_akgrq"]
+[ext_resource type="PackedScene" uid="uid://cmftvj4xa0slv" path="res://scenes/audience_member.tscn" id="5_6a7tr"]
+[ext_resource type="PackedScene" uid="uid://ccyioibeiq38r" path="res://scenes/manager.tscn" id="5_ahbrb"]
+[ext_resource type="PackedScene" uid="uid://b0mds32lmdvo3" path="res://scenes/presentation_projection.tscn" id="9_6pai7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvow8"]
+size = Vector2(72.0907, 36.9381)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ScaledSprites" type="Node2D" parent="."]
+scale = Vector2(3, 3)
+
+[node name="MainSprite" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(64.0854, 36.0481)
+texture = ExtResource("1_exdbj")
+
+[node name="TVScreen" type="Sprite2D" parent="ScaledSprites"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(45.1, 26.5)
+scale = Vector2(80, 45)
+texture = ExtResource("2_jfaqy")
+
+[node name="spr_presentation" parent="ScaledSprites" instance=ExtResource("9_6pai7")]
+position = Vector2(45.1, 26.5)
+
+[node name="TVEdge" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(45.1, 26.5)
+texture = ExtResource("3_akgrq")
+
+[node name="AudiencePositions" type="Node2D" parent="ScaledSprites"]
+position = Vector2(4.89542, 64.9755)
+
+[node name="AM01" parent="ScaledSprites/AudiencePositions" instance=ExtResource("5_6a7tr")]
+position = Vector2(0.771246, -5.30884)
+
+[node name="AM02" parent="ScaledSprites/AudiencePositions" instance=ExtResource("5_6a7tr")]
+position = Vector2(7.10458, 0.69116)
+
+[node name="AM03" parent="ScaledSprites/AudiencePositions" instance=ExtResource("5_6a7tr")]
+position = Vector2(-0.228753, 2.35783)
+
+[node name="Area2D" type="Area2D" parent="ScaledSprites"]
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScaledSprites/Area2D"]
+position = Vector2(45.0453, 26.48)
+shape = SubResource("RectangleShape2D_gvow8")
+
+[node name="Manager" parent="ScaledSprites/Area2D" instance=ExtResource("5_ahbrb")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(192, 108)
+zoom = Vector2(3, 3)
+
+[connection signal="failed_slide" from="ScaledSprites/spr_presentation" to="ScaledSprites/Area2D/Manager" method="_on_spr_presentation_failed_slide"]

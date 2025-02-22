@@ -33,6 +33,7 @@ func set_drop_area() -> void:
 	hovering_object.drop_area = self
 	held_object = hovering_object
 	hovering_object = null
+	get_parent()._game_success()
 	get_parent().queue_free() # swipe done correctly
 	#hovering_object.queue_free() 
 
