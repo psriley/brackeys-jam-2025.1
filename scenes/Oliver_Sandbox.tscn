@@ -62,10 +62,15 @@ position = Vector2(192, 108)
 zoom = Vector2(3, 3)
 
 [node name="QuestionBox" parent="." instance=ExtResource("10_7p0nh")]
-position = Vector2(56, 177)
+visible = false
+position = Vector2(46, 79)
+scale = Vector2(0.5, 0.5)
 
 [node name="Control" parent="." instance=ExtResource("8_4qkde")]
-offset_left = 160.0
-offset_top = 179.0
-offset_right = 160.0
-offset_bottom = 179.0
+visible = false
+offset_left = 97.0
+offset_top = 177.0
+offset_right = 97.0
+offset_bottom = 177.0
+
+[connection signal="failed_slide" from="ScaledSprites/spr_presentation" to="ScaledSprites/Area2D/Manager" method="_on_spr_presentation_failed_slide"]

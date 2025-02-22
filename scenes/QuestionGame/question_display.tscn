@@ -1,26 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyx5mca01sqqo"]
 
 [ext_resource type="Script" path="res://scripts/update_question_text.gd" id="1_6inrw"]
-[ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="1_rpq0d"]
+[ext_resource type="Texture2D" uid="uid://budsa1xq37hus" path="res://Assets/Sprites/Question_Bubble.png" id="2_3y5y8"]
 [ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="2_bh6ai"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ppgn"]
 
 [node name="Node2D" type="Node2D"]
-scale = Vector2(0.3, 0.3)
 script = ExtResource("1_6inrw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(163.25, 53.25)
-scale = Vector2(327.5, 107.5)
-texture = ExtResource("1_rpq0d")
+position = Vector2(203.5, 92.5)
+scale = Vector2(3.63393, 3.85417)
+texture = ExtResource("2_3y5y8")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 1.0
-offset_right = 325.0
-offset_bottom = 113.0
+offset_left = 52.0
+offset_top = 44.0
+offset_right = 376.0
+offset_bottom = 157.0
 theme = ExtResource("2_bh6ai")
 theme_override_colors/default_color = Color(0, 0, 0.054902, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_6ppgn")
-text = "Default Text"
+text = "This is a question for the player."
 metadata/_edit_use_anchors_ = true

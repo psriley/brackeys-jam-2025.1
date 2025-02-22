@@ -7,8 +7,8 @@ extends Node
 #preload all minigames:
 var pop_up_scenes = [preload("res://scenes/PopupGames/pop_up_mini_game1.tscn"), preload("res://scenes/PopupGames/pop_up_mini_game2.tscn"), preload("res://scenes/PopupGames/pop_up_mini_game3.tscn")]
 var swipe_scene = preload("res://scenes/swipe_mini_game.tscn")
-var question_input = preload("res://scenes/InputTextbox.tscn")
-var question_display = preload("res://scenes/question_display.tscn")
+var question_input = preload("res://scenes/QuestionGame/InputTextbox.tscn")
+var question_display = preload("res://scenes/QuestionGame/question_display.tscn")
 #Dict of questions and answers
 #	Rule; Questions must be ~<30 Chars
 var dict_questions = {
@@ -44,7 +44,7 @@ func _on_tmr_next_game_timeout() -> void:
 func minigame_failure(minigame_ref : MiniGame) -> void:
 	health -= 1
 	#remove audience member
-	minigame_ref.audience_member_upset.queue_free()
+	#minigame_ref.audience_member_upset.queue_free()
 	var audience_int : int = audience.find(minigame_ref.audience_member_upset)
 	audience.pop_at(audience_int)
 	print("Health is now: " + str(health) + " because of " + MiniGame.MiniGameType.find_key(minigame_ref.m_type))
@@ -123,9 +123,7 @@ func create_minigame_instance(m_type : int) -> MiniGame:
 			#question_instance = question_display.instantiate()
 			#var temp_question: String
 			#var temp_answer: String
-#
-			##Choose a random question
-			##Hack-ey way of doing this but hey, it works.
+
 			#match int(x):
 				#0:
 					#print(dict_questions.get("Paris"))
@@ -154,3 +152,9 @@ func create_minigame_instance(m_type : int) -> MiniGame:
 	
 	printerr("Unknown MiniGame created (audience member not going to be attached correctly)!")
 	return MiniGame.new()
+
+
+func _on_spr_presentation_failed_slide() -> void:
+	for i in cur_minigame_instances:
+		i._slide_failed()
+		
