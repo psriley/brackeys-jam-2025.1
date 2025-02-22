@@ -22,4 +22,4 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
-	lose_life.emit(m_type)
+	lose_life.emit(self)

@@ -44,16 +44,18 @@ position = Vector2(45.1, 3)
 scale = Vector2(80, 8)
 texture = ExtResource("2_mebpk")
 
-[node name="AudienceMember#1" type="Sprite2D" parent="ScaledSprites"]
+[node name="AudiencePositions" type="Node2D" parent="ScaledSprites"]
 position = Vector2(4.89542, 64.9755)
+
+[node name="AM01" type="Sprite2D" parent="ScaledSprites/AudiencePositions"]
 texture = ExtResource("5_b156c")
 
-[node name="AudienceMember#3" type="Sprite2D" parent="ScaledSprites"]
-position = Vector2(11.7305, 66.5251)
+[node name="AM03" type="Sprite2D" parent="ScaledSprites/AudiencePositions"]
+position = Vector2(6.83508, 1.54959)
 texture = ExtResource("5_b156c")
 
-[node name="AudienceMember#2" type="Sprite2D" parent="ScaledSprites"]
-position = Vector2(5.34045, 70.761)
+[node name="AM02" type="Sprite2D" parent="ScaledSprites/AudiencePositions"]
+position = Vector2(0.44503, 5.78549)
 texture = ExtResource("5_b156c")
 
 [node name="Area2D" type="Area2D" parent="ScaledSprites"]
