@@ -7,6 +7,7 @@
 texture = ExtResource("1_ylbxd")
 
 [node name="NextSlideIndicator" parent="." instance=ExtResource("2_ur7mh")]
+visible = false
 position = Vector2(1, -8)
 scale = Vector2(0.347875, 0.4)
 animation = &"progress_bar"

@@ -27,6 +27,7 @@ func _set_text(temp_string: String ) -> void:
 func _question_end(success_flag: bool) -> void:
 	if success_flag:
 		input_box_instance.queue_free()
+		_game_success()
 		self.queue_free()
 	else:
 		lose_life.emit()
