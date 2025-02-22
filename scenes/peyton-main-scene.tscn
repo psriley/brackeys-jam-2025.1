@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cpbgn08mntpgv" path="res://Assets/Sprites/audience-member.png" id="5_b156c"]
 [ext_resource type="Texture2D" uid="uid://b6fa2ax3rvh0k" path="res://Assets/Sprites/button-ad.png" id="6_ouhub"]
 [ext_resource type="Texture2D" uid="uid://bemdxfvo8ykmn" path="res://Assets/Sprites/free-money-ad.png" id="7_30iuk"]
-[ext_resource type="PackedScene" uid="uid://cyx5mca01sqqo" path="res://scenes/question_display.tscn" id="7_sfotf"]
+[ext_resource type="PackedScene" uid="uid://cyx5mca01sqqo" path="res://scenes/QuestionGame/question_display.tscn" id="7_sfotf"]
 [ext_resource type="Texture2D" uid="uid://cfvlvmw6dg57h" path="res://Assets/Sprites/thin-ad.png" id="8_o6jb7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvow8"]

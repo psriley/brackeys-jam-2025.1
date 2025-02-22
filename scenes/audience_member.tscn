@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmftvj4xa0slv"]
+
+[ext_resource type="Texture2D" uid="uid://cpbgn08mntpgv" path="res://Assets/Sprites/audience-member.png" id="1_ylbxd"]
+[ext_resource type="PackedScene" uid="uid://cc4b2jatu4dag" path="res://scenes/bar_indicator.tscn" id="2_ur7mh"]
+
+[node name="AM01" type="Sprite2D"]
+position = Vector2(0.771247, -3.30884)
+texture = ExtResource("1_ylbxd")
+
+[node name="NextSlideIndicator" parent="." instance=ExtResource("2_ur7mh")]
+position = Vector2(-1.78814e-07, -7.66667)
+scale = Vector2(0.364583, 0.444444)
+animation = &"progress_bar"
+frame_progress = 0.0
