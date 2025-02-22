@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cit20dmv431il"]
+
+[ext_resource type="Script" path="res://scenes/laptop_minigame.gd" id="1_80707"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qod7"]
+size = Vector2(64, 32)
+
+[node name="LaptopArea" type="Node2D"]
+script = ExtResource("1_80707")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_7qod7")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
