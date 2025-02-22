@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/pop_up_mini_game.gd" id="1_tv8aj"]
 [ext_resource type="Texture2D" uid="uid://b6fa2ax3rvh0k" path="res://Assets/Sprites/button-ad.png" id="2_6io68"]
 [ext_resource type="PackedScene" uid="uid://cc4b2jatu4dag" path="res://scenes/bar_indicator.tscn" id="3_cithq"]
-[ext_resource type="AudioStream" uid="uid://dgollm8x5yrbi" path="res://Assets/Audio/113986__kastenfrosch__chatton.mp3" id="4_jrrst"]
+[ext_resource type="AudioStream" uid="uid://cvqqp4pdsby5d" path="res://Assets/Audio/583554__thehorriblejoke__notification-sound.wav" id="4_ai0iu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twr8j"]
 size = Vector2(5, 5)
@@ -25,6 +25,6 @@ position = Vector2(0, 9)
 scale = Vector2(0.59375, 0.583333)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_jrrst")
+stream = ExtResource("4_ai0iu")
 
 [connection signal="input_event" from="Sprite2D/Area2D" to="." method="_on_area_2d_input_event"]
