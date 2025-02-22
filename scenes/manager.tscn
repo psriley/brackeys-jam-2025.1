@@ -1,11 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccyioibeiq38r"]
+[gd_scene load_steps=3 format=3 uid="uid://ccyioibeiq38r"]
 
 [ext_resource type="Script" path="res://scripts/ManagerScene.gd" id="1_uvpon"]
+[ext_resource type="AudioStream" uid="uid://cculfyaiwwejo" path="res://Assets/Audio/764492__chloepieterse__office-ambience.wav" id="2_tmg43"]
 
 [node name="Manager" type="Node"]
 script = ExtResource("1_uvpon")
 
 [node name="tmr_next_game" type="Timer" parent="."]
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tmg43")
+autoplay = true
 
 [connection signal="timeout" from="tmr_next_game" to="." method="_on_tmr_next_game_timeout"]
