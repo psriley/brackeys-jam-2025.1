@@ -13,6 +13,8 @@ func _ready() -> void:
 	super._ready()
 	#lose_life.emit(m_type)
 	swipeable_sprite = swipeable_object.get_child(0)
+	anger_bar = get_child(1).get_child(2)
+	setup_anger_bar()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

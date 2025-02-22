@@ -224,7 +224,5 @@ animations = [{
 }]
 
 [node name="NextSlideIndicator" type="AnimatedSprite2D"]
-position = Vector2(67, -17)
 sprite_frames = SubResource("SpriteFrames_r7qed")
-animation = &"space_bar"
-frame_progress = 0.402718
+animation = &"progress_bar"

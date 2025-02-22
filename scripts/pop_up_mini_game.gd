@@ -5,6 +5,8 @@ func _ready() -> void:
 	tmr_time = 2
 	super._ready() # Ensure base class runs first	
 	m_type = MiniGameType.POP_UP
+	anger_bar = get_child(1)
+	setup_anger_bar()
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

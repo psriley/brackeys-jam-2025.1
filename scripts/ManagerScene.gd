@@ -13,8 +13,8 @@ var question_display = preload("res://scenes/QuestionGame/question_display.tscn"
 #Dict of questions and answers
 #	Rule; Questions must be ~<30 Chars
 var dict_questions = {
-	"Paris":"What is the Capital of France",
-	"Cow":"What animal goes moo",
+	"What is the Capital of France":"Paris",
+	"What animal goes moo":["Cow", "Pig", "Dog"],
 	"":""
 }
 #Empty node for minigames:
@@ -46,7 +46,7 @@ func minigame_failure(minigame_ref : MiniGame) -> void:
 	health -= 1
 	#remove audience member
 	#minigame_ref.audience_member_upset.queue_free()
-	
+	audience.pick_random().queue_free()
 	var minigame_int: int = cur_minigame_instances.find(minigame_ref)
 	cur_minigame_instances.pop_at(minigame_int)
 	
@@ -70,13 +70,14 @@ func _next_game() -> void:
 	
 	var cur_minigame_instance : MiniGame = create_minigame_instance(i)
 	cur_minigame_instances.append(cur_minigame_instance)
-	
-	if(is_instance_valid(audience[0])):
-		cur_minigame_instance.audience_member_upset = audience[0]
-		audience.pop_at(0)
-	else:
-		printerr("Audience not valid, can't spawn game")
-	cur_minigame_instance._setup_audience_bar()
+	#############################
+	#if(is_instance_valid(audience[0])):
+		#cur_minigame_instance.audience_member_upset = audience[0]
+		#audience.pop_at(0)
+	#else:
+		#printerr("Audience not valid, can't spawn game")
+	#cur_minigame_instance._setup_audience_bar()
+	###################################
 	cur_minigame_instance.tmr_success.start()
 	cur_minigame_instance.tmr_weight = tmr_weight
 
