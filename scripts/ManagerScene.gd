@@ -2,10 +2,10 @@ extends Node
 @onready var timer = $tmr_next_game
 @onready var audience_positions : Node2D = $"../../AudiencePositions"
 
-@export var health: int = 6
+@export var health: int = 3
 @export var audience : Array[Sprite2D] = []
 #preload all minigames:
-var pop_up_scene = preload("res://scenes/pop_up_mini_game.tscn")
+var pop_up_scenes = [preload("res://scenes/PopupGames/pop_up_mini_game1.tscn"), preload("res://scenes/PopupGames/pop_up_mini_game2.tscn"), preload("res://scenes/PopupGames/pop_up_mini_game3.tscn")]
 var swipe_scene = preload("res://scenes/swipe_mini_game.tscn")
 var question_input = preload("res://scenes/InputTextbox.tscn")
 var question_display = preload("res://scenes/question_display.tscn")
@@ -30,11 +30,12 @@ func _ready() -> void:
 	audience = [audience_positions.get_child(0), audience_positions.get_child(1), audience_positions.get_child(2)]
 	if audience.size() != health:
 		printerr("Health and audience size must be equal!")
+		printerr("Health = " + str(health))
+		printerr("Audience size = " + str(audience.size()))
 		assert(audience.size() == health)
 
 
 func _on_tmr_next_game_timeout() -> void:
-	print("time's up!")
 	timer.wait_time = randf_range(2.0,6.0)
 	_next_game()
 	timer.start()
@@ -63,7 +64,6 @@ func _next_game() -> void:
 	
 	var i : int = minigames_arr.pick_random()
 	#var i : int = 0
-	print("i is " + str(i))
 	
 	var cur_minigame_instance : MiniGame = create_minigame_instance(i)
 	cur_minigame_instances.append(cur_minigame_instance)
@@ -91,18 +91,19 @@ func _next_game() -> void:
 func create_minigame_instance(m_type : int) -> MiniGame:
 	match m_type:
 		0:
-			var popup_instance : MiniGame = pop_up_scene.instantiate()
+			var popup_instance : MiniGame = pop_up_scenes.pick_random().instantiate()
 			# connect base minigame signal to manager function
 			popup_instance.lose_life.connect(minigame_failure)
 			#popup_instance.audience_member_irritated = 
 			
 			#randomise position between defined boundaries
 			#random range between 2 x co-ords and 2 y co-ords
-			popup_instance.position = Vector2(25,25)
+			#Range limit: (24,19) (66,34)
+			var temp_x = randi_range(24, 66)
+			var temp_y = randi_range(19, 34)
+			popup_instance.position = Vector2(temp_x,temp_y)
 
 			get_parent().add_child(popup_instance)
-			print("add pop up")
-			
 			return popup_instance
 			#load pop_up_scene
 		1:
@@ -112,7 +113,6 @@ func create_minigame_instance(m_type : int) -> MiniGame:
 			get_parent().add_child(swipe_instance)
 			swipe_instance.position_offset = Vector2(57,15)
 			swipe_instance.position = swipe_instance.position_offset
-			print("add swipe game")
 			
 			return swipe_instance
 			#load swipte_mini_game

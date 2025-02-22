@@ -56,7 +56,7 @@ func reset_timer() -> void:
 		tmr_slides.wait_time = (28/temp_SS)
 		slide_indicator.set_speed_scale(temp_SS)
 	else:
-		var temp_SS = randf_range(10.0,14.0)
+		var temp_SS = randf_range(14.0,16.0)
 		tmr_slides.wait_time = (28/temp_SS)
 		slide_indicator.set_speed_scale(temp_SS)
 	

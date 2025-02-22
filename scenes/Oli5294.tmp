@@ -1,12 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dncriyn6e68wy"]
+[gd_scene load_steps=13 format=3 uid="uid://dncriyn6e68wy"]
 
 [ext_resource type="Texture2D" uid="uid://b45fw756ngvgs" path="res://Assets/Sprites/placeholder-main-scene#2.png" id="1_exdbj"]
 [ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="2_jfaqy"]
 [ext_resource type="Texture2D" uid="uid://gsdypvj03o0x" path="res://Assets/Sprites/tv-edge.png" id="3_akgrq"]
 [ext_resource type="Texture2D" uid="uid://cpbgn08mntpgv" path="res://Assets/Sprites/audience-member.png" id="4_luksb"]
 [ext_resource type="PackedScene" uid="uid://ccyioibeiq38r" path="res://scenes/manager.tscn" id="5_ahbrb"]
+[ext_resource type="Texture2D" uid="uid://b6fa2ax3rvh0k" path="res://Assets/Sprites/button-ad.png" id="6_kbkto"]
+[ext_resource type="Texture2D" uid="uid://bemdxfvo8ykmn" path="res://Assets/Sprites/free-money-ad.png" id="7_w86u0"]
+[ext_resource type="Texture2D" uid="uid://cfvlvmw6dg57h" path="res://Assets/Sprites/thin-ad.png" id="8_rnmxv"]
 [ext_resource type="PackedScene" uid="uid://b0mds32lmdvo3" path="res://scenes/presentation_projection.tscn" id="9_6pai7"]
 [ext_resource type="PackedScene" uid="uid://cyx5mca01sqqo" path="res://scenes/question_display.tscn" id="10_7p0nh"]
+[ext_resource type="PackedScene" uid="uid://dmvolwdrk0j2v" path="res://scenes/swipeable_object.tscn" id="11_yd64v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvow8"]
 size = Vector2(72.0907, 36.9381)
@@ -47,6 +51,18 @@ texture = ExtResource("4_luksb")
 position = Vector2(0.44503, 5.78549)
 texture = ExtResource("4_luksb")
 
+[node name="AudienceMember#1" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(4.66667, 58.3333)
+texture = ExtResource("4_luksb")
+
+[node name="AudienceMember#3" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(12.6667, 65.6667)
+texture = ExtResource("4_luksb")
+
+[node name="AudienceMember#2" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(5.33333, 67.3333)
+texture = ExtResource("4_luksb")
+
 [node name="Area2D" type="Area2D" parent="ScaledSprites"]
 input_pickable = false
 
@@ -55,10 +71,26 @@ position = Vector2(45.0453, 26.48)
 shape = SubResource("RectangleShape2D_gvow8")
 
 [node name="Manager" parent="ScaledSprites/Area2D" instance=ExtResource("5_ahbrb")]
+health = null
+
+[node name="ButtonAd" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(21.3333, 16)
+texture = ExtResource("6_kbkto")
+
+[node name="MoneyAd" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(26.622, 34.167)
+texture = ExtResource("7_w86u0")
+
+[node name="ThinAd" type="Sprite2D" parent="ScaledSprites"]
+position = Vector2(64, 34.6667)
+texture = ExtResource("8_rnmxv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(192, 108)
 zoom = Vector2(3, 3)
 
-[node name="QuestionBox" parent="." instance=ExtResource("10_7p0nh")]
+[node name="Node2D" parent="." instance=ExtResource("10_7p0nh")]
 position = Vector2(56, 177)
+
+[node name="SwipeableObject" parent="." instance=ExtResource("11_yd64v")]
+position = Vector2(173.64, 45.63)
