@@ -12,6 +12,7 @@ var swipeable_sprite : Sprite2D
 func _ready() -> void:
 	m_type = MiniGameType.SWIPE
 	tmr_time = 3.0
+	tmr_weight = get_parent().get_child(1).tmr_weight
 	super._ready()
 	#lose_life.emit(m_type)
 	swipeable_sprite = swipeable_object.get_child(0)

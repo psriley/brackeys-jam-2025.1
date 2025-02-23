@@ -149,37 +149,15 @@ func create_minigame_instance(m_type : int) -> MiniGame:
 			laptop_instance.position = Vector2(110,35)
 			
 			return laptop_instance
-		#3:
-			#print("add question")
+		3:
 			#var x = randf_range(0, dict_questions.size())
 			#var answer_instance : Control = question_input.instantiate()
 			#question_instance = question_display.instantiate()
-			#var temp_question: String
-			#var temp_answer: String
-
-			#match int(x):
-				#0:
-					#print(dict_questions.get("Paris"))
-					#temp_question = dict_questions.get("Paris")
-					#temp_answer = "Paris"
-#
-				#1:
-					#temp_question = dict_questions.get("Cow")
-					#temp_answer = "Cow"
-#
-			##set up input text box and question box with chosen question
-			#answer_instance.target_answer = temp_answer
-			#answer_instance.input_event_end.connect(_on_question_input_end)
-			#answer_instance.position = Vector2(50,50)
-#
-			#question_instance._set_text(temp_question)
 			#print("And the question is... " + temp_question)
-			#question_instance.position = Vector2(50,100)
-#
-			##instantiate
-			##get parent can be a direct reference instead
-			#get_parent().add_child(answer_instance)
-			#get_parent().add_child(question_instance)
+			question_instance.position = Vector2(50,164)
+
+			#instantiate
+			get_parent().add_child(question_instance)
 			#
 			#return MiniGame.new()
 	

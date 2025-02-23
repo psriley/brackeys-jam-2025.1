@@ -13,6 +13,7 @@ var answer_string: String
 
 func _ready() -> void:
 	tmr_time = 2.5
+	tmr_weight = get_parent().get_child(1).tmr_weight
 	preload_answers()
 	super._ready()
 	m_type = MiniGameType.QUESTION
