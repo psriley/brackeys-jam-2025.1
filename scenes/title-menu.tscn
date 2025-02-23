@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmdjxsbdaj8wb"]
+[gd_scene load_steps=9 format=3 uid="uid://bmdjxsbdaj8wb"]
 
-[ext_resource type="Texture2D" uid="uid://bhtb6dsgoy8ts" path="res://Assets/Sprites/MenuSprites/title-menu.png" id="1_n2fki"]
+[ext_resource type="Script" path="res://scripts/title_menu.gd" id="1_43boh"]
+[ext_resource type="Texture2D" uid="uid://c4g47v16yjqi7" path="res://Assets/Sprites/MenuSprites/title-menu-background.png" id="1_gfue3"]
+[ext_resource type="Texture2D" uid="uid://c3rq5xf6p5lje" path="res://Assets/Sprites/MenuSprites/title-menu-button.png" id="2_4kykq"]
 [ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="2_5nc1l"]
+[ext_resource type="Texture2D" uid="uid://b74f88mypyjfy" path="res://Assets/Sprites/MenuSprites/start-icon.png" id="2_l77gb"]
+[ext_resource type="Texture2D" uid="uid://bipm0mmi3brhp" path="res://Assets/Sprites/MenuSprites/instructions-icon.png" id="3_6tctf"]
+[ext_resource type="Texture2D" uid="uid://bgggtblxdg2b4" path="res://Assets/Sprites/MenuSprites/quit-icon.png" id="4_q0xxg"]
+[ext_resource type="Texture2D" uid="uid://3c7m4cn3nrk8" path="res://Assets/Sprites/MenuSprites/filled-button.png" id="6_4bwhw"]
 
-[node name="Control" type="Control"]
+[node name="TitleMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_43boh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -18,7 +25,88 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_n2fki")
+texture = ExtResource("1_gfue3")
+
+[node name="StartIcon" type="TextureRect" parent="TextureRect"]
+z_index = 1
+layout_mode = 0
+offset_left = 385.0
+offset_top = 141.0
+offset_right = 513.0
+offset_bottom = 269.0
+texture = ExtResource("2_l77gb")
+stretch_mode = 5
+
+[node name="InstructionsIcon" type="TextureRect" parent="TextureRect"]
+z_index = 1
+layout_mode = 0
+offset_left = 385.0
+offset_top = 261.0
+offset_right = 513.0
+offset_bottom = 389.0
+texture = ExtResource("3_6tctf")
+stretch_mode = 5
+
+[node name="QuitIcon" type="TextureRect" parent="TextureRect"]
+z_index = 1
+layout_mode = 0
+offset_left = 385.0
+offset_top = 380.0
+offset_right = 513.0
+offset_bottom = 508.0
+texture = ExtResource("4_q0xxg")
+stretch_mode = 5
+
+[node name="StartButton" type="TextureButton" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -180.0
+offset_right = 210.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_4kykq")
+texture_hover = ExtResource("6_4bwhw")
+stretch_mode = 0
+
+[node name="InstructionsButton" type="TextureButton" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -60.0
+offset_right = 210.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_4kykq")
+texture_hover = ExtResource("6_4bwhw")
+stretch_mode = 0
+
+[node name="QuitButton" type="TextureButton" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = 60.0
+offset_right = 210.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_4kykq")
+texture_hover = ExtResource("6_4bwhw")
+stretch_mode = 0
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
@@ -32,51 +120,41 @@ text = "Presentation Game"
 
 [node name="Start" type="Label" parent="."]
 layout_mode = 0
-offset_left = 368.0
-offset_top = 160.0
-offset_right = 503.0
-offset_bottom = 228.0
+offset_left = 566.0
+offset_top = 170.0
+offset_right = 701.0
+offset_bottom = 238.0
 theme = ExtResource("2_5nc1l")
 theme_override_font_sizes/font_size = 60
 text = "Start"
 
-[node name="Panel" type="Panel" parent="Start"]
-layout_mode = 0
-offset_left = -208.0
-offset_top = -32.0
-offset_right = 600.0
-offset_bottom = 96.0
-
 [node name="Instructions" type="Label" parent="."]
 layout_mode = 0
-offset_left = 368.0
-offset_top = 304.0
-offset_right = 676.0
-offset_bottom = 372.0
+offset_left = 527.0
+offset_top = 299.0
+offset_right = 835.0
+offset_bottom = 367.0
+scale = Vector2(0.75, 0.75)
 theme = ExtResource("2_5nc1l")
 theme_override_font_sizes/font_size = 60
 text = "Instructions"
 
-[node name="Panel2" type="Panel" parent="Instructions"]
-layout_mode = 0
-offset_left = -208.0
-offset_top = -40.0
-offset_right = 600.0
-offset_bottom = 88.0
-
 [node name="Quit" type="Label" parent="."]
 layout_mode = 0
-offset_left = 368.0
-offset_top = 448.0
-offset_right = 473.0
-offset_bottom = 516.0
+offset_left = 581.0
+offset_top = 411.0
+offset_right = 686.0
+offset_bottom = 479.0
 theme = ExtResource("2_5nc1l")
 theme_override_font_sizes/font_size = 60
 text = "Quit"
 
-[node name="Panel3" type="Panel" parent="Quit"]
-layout_mode = 0
-offset_left = -208.0
-offset_top = -48.0
-offset_right = 600.0
-offset_bottom = 96.0
+[connection signal="button_up" from="TextureRect/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="mouse_entered" from="TextureRect/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect/StartButton" to="." method="_on_start_button_mouse_exited"]
+[connection signal="button_up" from="TextureRect/InstructionsButton" to="." method="_on_instructions_button_button_up"]
+[connection signal="mouse_entered" from="TextureRect/InstructionsButton" to="." method="_on_instructions_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect/InstructionsButton" to="." method="_on_instructions_button_mouse_exited"]
+[connection signal="button_up" from="TextureRect/QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="mouse_entered" from="TextureRect/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect/QuitButton" to="." method="_on_quit_button_mouse_exited"]
