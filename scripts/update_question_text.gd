@@ -17,7 +17,7 @@ func _ready() -> void:
 	preload_answers()
 	super._ready()
 	m_type = MiniGameType.QUESTION
-	
+	_set_text(question_string)
 	initialise_inputbox()
 	set_answers()
 	
