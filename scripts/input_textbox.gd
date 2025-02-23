@@ -17,6 +17,9 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 		$".".queue_free()
 
 func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("spacebar_press"):
+		get_viewport().set_input_as_handled()  # Blocks space input
+	
 	if Input.is_action_pressed("enter_press"):
 		success_flag = false
 		input_event_end.emit(success_flag)
