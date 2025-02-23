@@ -8,6 +8,7 @@ extends Node
 #preload all minigames:
 var pop_up_scenes = [preload("res://scenes/PopupGames/pop_up_mini_game1.tscn"), preload("res://scenes/PopupGames/pop_up_mini_game2.tscn"), preload("res://scenes/PopupGames/pop_up_mini_game3.tscn")]
 var swipe_scene = preload("res://scenes/swipe_mini_game.tscn")
+var laptop_scene = preload("res://scenes/laptop_area.tscn")
 var question_input = preload("res://scenes/QuestionGame/InputTextbox.tscn")
 var question_display = preload("res://scenes/QuestionGame/question_display.tscn")
 #Dict of questions and answers
@@ -20,14 +21,15 @@ var dict_questions = {
 #Empty node for minigames:
 var question_instance : Node2D
 var swipe_instance : Node2D
+var laptop_instance : Node2D
 
-var num_minigames : int = 3
+#var num_minigames : int = 3
 var minigames_arr : Array[int]
 
 var cur_minigame_instances : Array[MiniGame]
 
 func _ready() -> void:
-	minigames_arr = [0, 1] #TODO: Add question minigame back when it works with the minigame structure
+	minigames_arr = [0, 1, 2] #TODO: Add question minigame back when it works with the minigame structure
 	audience = [audience_positions.get_child(0), audience_positions.get_child(1), audience_positions.get_child(2)]
 	if audience.size() != health:
 		printerr("Health and audience size must be equal!")
@@ -60,15 +62,20 @@ func _next_game() -> void:
 	if audience.size() <= 0:
 		print("Can't add a new game because health is 0 (game over)")
 		return
-		
-	var add_slide_back : bool = false
+	
+	var slides_to_add_back : Array[int]
+	#var add_slide_back : bool = false
 	
 	if is_instance_valid(swipe_instance):
-		add_slide_back = true
-		minigames_arr.pop_at(1)
+		slides_to_add_back.append(swipe_instance.m_type)
+		minigames_arr.pop_at(swipe_instance.m_type)
+		
+	if is_instance_valid(laptop_instance):
+		slides_to_add_back.append(laptop_instance.m_type)
+		minigames_arr.pop_at(laptop_instance.m_type)
 	
 	var i : int = minigames_arr.pick_random()
-	#var i : int = 1
+	#var i : int = 2
 	
 	var cur_minigame_instance : MiniGame = create_minigame_instance(i)
 	cur_minigame_instances.append(cur_minigame_instance)
@@ -81,10 +88,15 @@ func _next_game() -> void:
 	#cur_minigame_instance._setup_audience_bar()
 	###################################
 	cur_minigame_instance.tmr_success.start()
-	cur_minigame_instance.tmr_weight = tmr_weight
 
-	if add_slide_back:
-		minigames_arr.insert(1, 1)
+	if !slides_to_add_back.is_empty():
+		for slide_id in slides_to_add_back.size():
+			minigames_arr.insert(slides_to_add_back[slide_id], slides_to_add_back[slide_id])
+			slides_to_add_back.pop_at(slide_id)
+			
+		#for slide in range(slides_to_add_back.size()):
+			#slides_to_add_back[slide_id]
+			#minigames_arr.insert(slide_id, slide_id)
 
 
 
@@ -129,7 +141,15 @@ func create_minigame_instance(m_type : int) -> MiniGame:
 			
 			return swipe_instance
 			#load swipte_mini_game
-		#2:
+		2: 
+			laptop_instance = laptop_scene.instantiate()
+			laptop_instance.lose_life.connect(minigame_failure)
+			
+			get_parent().add_child(laptop_instance)
+			laptop_instance.position = Vector2(110,35)
+			
+			return laptop_instance
+		#3:
 			#print("add question")
 			#var x = randf_range(0, dict_questions.size())
 			#var answer_instance : Control = question_input.instantiate()

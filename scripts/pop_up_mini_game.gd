@@ -4,6 +4,7 @@ var sfx_spawn : AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	tmr_time = 2
+	tmr_weight = get_parent().get_child(1).tmr_weight
 	super._ready() # Ensure base class runs first	
 	m_type = MiniGameType.POP_UP
 	anger_bar = get_child(1)

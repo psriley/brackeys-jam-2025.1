@@ -1,7 +1,7 @@
 extends Node2D
 class_name MiniGame
 
-enum MiniGameType {POP_UP, SWIPE, QUESTION, INVALID = -1}
+enum MiniGameType {POP_UP, SWIPE, LAPTOP, QUESTION, INVALID = -1}
 
 var tmr_success : Timer
 var tmr_time : float
@@ -12,8 +12,6 @@ signal lose_life(minigame_type : MiniGameType)
 var m_type : MiniGameType
 var anger_bar : AnimatedSprite2D
 var position_offset
-
-
 
 func _ready() -> void:
 	tmr_success = Timer.new()

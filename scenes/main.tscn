@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwujaa4n1o0km"]
+[gd_scene load_steps=8 format=3 uid="uid://dwujaa4n1o0km"]
 
 [ext_resource type="Texture2D" uid="uid://b45fw756ngvgs" path="res://Assets/Sprites/placeholder-main-scene#2.png" id="1_our7x"]
 [ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="2_ieg6u"]
 [ext_resource type="Texture2D" uid="uid://gsdypvj03o0x" path="res://Assets/Sprites/tv-edge.png" id="3_en2f6"]
 [ext_resource type="PackedScene" uid="uid://cmftvj4xa0slv" path="res://scenes/audience_member.tscn" id="5_ols4m"]
 [ext_resource type="PackedScene" uid="uid://ccyioibeiq38r" path="res://scenes/manager.tscn" id="5_pwjcy"]
-[ext_resource type="PackedScene" uid="uid://c43ylfab67o1r" path="res://scenes/game_over.tscn" id="7_kplro"]
 [ext_resource type="PackedScene" uid="uid://b0mds32lmdvo3" path="res://scenes/presentation_projection.tscn" id="9_yr8l1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvow8"]
@@ -61,9 +60,6 @@ position = Vector2(45.0453, 26.48)
 shape = SubResource("RectangleShape2D_gvow8")
 
 [node name="Manager" parent="ScaledSprites/Area2D" instance=ExtResource("5_pwjcy")]
-
-[node name="Node2D" parent="ScaledSprites" instance=ExtResource("7_kplro")]
-position = Vector2(45, 26.3333)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(192, 108)
