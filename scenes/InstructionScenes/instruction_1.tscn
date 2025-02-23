@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3mv4c0uehgtn"]
+
+[ext_resource type="Texture2D" uid="uid://c2evua8kjx2y8" path="res://Assets/Sprites/MenuSprites/instruction-click-arrow.png" id="1_elgpd"]
+[ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="1_pltlu"]
+[ext_resource type="Texture2D" uid="uid://bemdxfvo8ykmn" path="res://Assets/Sprites/free-money-ad.png" id="2_iuwau"]
+[ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="3_kgbob"]
+[ext_resource type="Texture2D" uid="uid://cetclcp5dcs7f" path="res://Assets/Spritesheets/Slide Countdown.png" id="4_mbwc8"]
+
+[node name="InstructionImage1" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 234.5)
+scale = Vector2(666, 379)
+texture = ExtResource("1_pltlu")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(616, 136)
+scale = Vector2(5, 5)
+texture = ExtResource("1_elgpd")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(616, 352)
+scale = Vector2(5, 5)
+texture = ExtResource("1_elgpd")
+
+[node name="AdSprite" type="Sprite2D" parent="."]
+position = Vector2(445, 215)
+scale = Vector2(10, 10)
+texture = ExtResource("2_iuwau")
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 656.0
+offset_top = 90.0
+offset_right = 816.0
+offset_bottom = 183.0
+theme = ExtResource("3_kgbob")
+theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+text = "CLICK to REMOVE"
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 656.0
+offset_top = 328.0
+offset_right = 816.0
+offset_bottom = 373.0
+theme = ExtResource("3_kgbob")
+theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+text = "Time Left"
+autowrap_mode = 2
+
+[node name="ProgressBar" type="Sprite2D" parent="."]
+position = Vector2(445, 359)
+scale = Vector2(10, 10)
+texture = ExtResource("4_mbwc8")
+region_enabled = true
+region_rect = Rect2(63.3608, 93.2314, 32.0562, 18.1818)
+
+[node name="Image" type="TextureRect" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.211
+anchor_top = 0.069
+anchor_right = 0.211
+anchor_bottom = 0.069
+offset_left = 15.928
+offset_top = 9.28799
+offset_right = 719.928
+offset_bottom = 410.288
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_pltlu")
+expand_mode = 1
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(574.938, 525.938)
+scale = Vector2(770.125, 132.125)
+texture = ExtResource("1_pltlu")
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 472.0
+offset_right = 952.0
+offset_bottom = 576.0
+theme = ExtResource("3_kgbob")
+theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+text = "Click the red X in the corner of ads to remove them before time expires!"
+autowrap_mode = 2

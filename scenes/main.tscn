@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dwujaa4n1o0km"]
 
-[ext_resource type="Texture2D" uid="uid://b45fw756ngvgs" path="res://Assets/Sprites/placeholder-main-scene#2.png" id="1_our7x"]
+[ext_resource type="Texture2D" uid="uid://g8dkj5gy1ao4" path="res://Assets/Sprites/main-background.png" id="1_lamwb"]
 [ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="2_ieg6u"]
 [ext_resource type="Texture2D" uid="uid://gsdypvj03o0x" path="res://Assets/Sprites/tv-edge.png" id="3_en2f6"]
 [ext_resource type="PackedScene" uid="uid://cmftvj4xa0slv" path="res://scenes/audience_member.tscn" id="5_ols4m"]
@@ -17,7 +17,7 @@ scale = Vector2(3, 3)
 
 [node name="MainSprite" type="Sprite2D" parent="ScaledSprites"]
 position = Vector2(64.0854, 36.0481)
-texture = ExtResource("1_our7x")
+texture = ExtResource("1_lamwb")
 
 [node name="TVScreen" type="Sprite2D" parent="ScaledSprites"]
 modulate = Color(0, 0, 0, 1)

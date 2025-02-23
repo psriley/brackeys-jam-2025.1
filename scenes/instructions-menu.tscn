@@ -1,18 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://byr6syjob7sj3"]
+[gd_scene load_steps=12 format=3 uid="uid://byr6syjob7sj3"]
 
 [ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="1_3awnr"]
+[ext_resource type="Texture2D" uid="uid://bmek1xlqgd5y7" path="res://Assets/Sprites/MenuSprites/instructions-menu.png" id="1_onj6e"]
+[ext_resource type="Script" path="res://scripts/instructions_menu.gd" id="1_xji4e"]
 [ext_resource type="Texture2D" uid="uid://nfihxn3xtf68" path="res://Assets/Sprites/InstructionImages/ad-instruction-img.PNG" id="2_483n1"]
 [ext_resource type="Texture2D" uid="uid://b8l1mwd45wyrb" path="res://Assets/Sprites/InstructionImages/swipe-notification-instruction-image.PNG" id="3_wfpj8"]
+[ext_resource type="Texture2D" uid="uid://gsdypvj03o0x" path="res://Assets/Sprites/tv-edge.png" id="4_1t6e5"]
+[ext_resource type="Texture2D" uid="uid://b6fa2ax3rvh0k" path="res://Assets/Sprites/button-ad.png" id="7_cf1pm"]
+[ext_resource type="Texture2D" uid="uid://cfvlvmw6dg57h" path="res://Assets/Sprites/thin-ad.png" id="9_7qamt"]
+[ext_resource type="Texture2D" uid="uid://dqcqw0jwu2jti" path="res://Assets/Sprites/MenuSprites/instruction-nav-arrow.png" id="11_bfw4r"]
+[ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="11_jwd1x"]
+[ext_resource type="Texture2D" uid="uid://ftnj4fqogkca" path="res://Assets/Sprites/MenuSprites/instruction-back-button.png" id="12_3pnqx"]
 
-[node name="Control" type="Control"]
+[node name="InstructionsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xji4e")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_onj6e")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 344.0
 offset_right = 754.0
@@ -22,6 +41,7 @@ theme_override_font_sizes/font_size = 80
 text = "Mini-Games"
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 32.0
 offset_top = 112.0
@@ -32,6 +52,7 @@ theme_override_font_sizes/font_size = 80
 text = "Ad Pop-Up:"
 
 [node name="Label3" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 24.0
 offset_top = 472.0
@@ -42,6 +63,7 @@ theme_override_font_sizes/font_size = 50
 text = "Swipe Notification:"
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 472.0
 offset_top = 80.0
@@ -51,6 +73,7 @@ texture = ExtResource("2_483n1")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 472.0
 offset_top = 368.0
@@ -58,3 +81,65 @@ offset_right = 942.0
 offset_bottom = 632.0
 texture = ExtResource("3_wfpj8")
 expand_mode = 1
+
+[node name="TVEdge" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 243.0
+offset_top = 45.0
+offset_right = 909.0
+offset_bottom = 424.0
+texture = ExtResource("4_1t6e5")
+expand_mode = 1
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.211
+anchor_top = 0.069
+anchor_right = 0.211
+anchor_bottom = 0.069
+offset_left = 15.928
+offset_top = 9.28799
+offset_right = 719.928
+offset_bottom = 410.288
+scale = Vector2(0.9, 0.9)
+expand_mode = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(462.5, 241.5)
+scale = Vector2(5, 5)
+texture = ExtResource("7_cf1pm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(393.5, 265.5)
+scale = Vector2(5, 5)
+texture = ExtResource("9_7qamt")
+
+[node name="ForwardNavButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 192.0
+offset_right = 1128.0
+offset_bottom = 320.0
+texture_normal = ExtResource("11_bfw4r")
+stretch_mode = 4
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 37.0
+offset_bottom = 26.0
+scale = Vector2(10, 10)
+texture_normal = ExtResource("12_3pnqx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(576, 234.5)
+scale = Vector2(666, 379)
+texture = ExtResource("11_jwd1x")
+
+[connection signal="button_up" from="ForwardNavButton" to="." method="_on_forward_nav_button_button_up"]
+[connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]

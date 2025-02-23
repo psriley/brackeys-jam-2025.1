@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://btmpy48cq1yuv"]
+
+[ext_resource type="Texture2D" uid="uid://c2evua8kjx2y8" path="res://Assets/Sprites/MenuSprites/instruction-click-arrow.png" id="1_hhfcp"]
+[ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="1_psnf6"]
+[ext_resource type="Texture2D" uid="uid://bxu0m7ihiakpx" path="res://Assets/Sprites/notification.png" id="2_f4p6o"]
+[ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="3_a3r04"]
+[ext_resource type="Texture2D" uid="uid://cetclcp5dcs7f" path="res://Assets/Spritesheets/Slide Countdown.png" id="4_647by"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 234.5)
+scale = Vector2(666, 379)
+texture = ExtResource("1_psnf6")
+
+[node name="SwipeSprite" type="Sprite2D" parent="."]
+position = Vector2(657, 180)
+scale = Vector2(10, 10)
+texture = ExtResource("2_f4p6o")
+
+[node name="ProgressBar" type="Sprite2D" parent="."]
+position = Vector2(657, 292)
+scale = Vector2(10, 10)
+texture = ExtResource("4_647by")
+region_enabled = true
+region_rect = Rect2(63.3608, 93.2314, 32.0562, 18.1818)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(337.09, 280)
+rotation = 1.5708
+scale = Vector2(13.0181, 13.0181)
+texture = ExtResource("1_hhfcp")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(338.181, 203.054)
+rotation = 1.5708
+scale = Vector2(13.0181, 13.0181)
+texture = ExtResource("1_hhfcp")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(338.181, 127.054)
+rotation = 1.5708
+scale = Vector2(13.0181, 13.0181)
+texture = ExtResource("1_hhfcp")
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 320.0
+offset_top = 352.0
+offset_right = 864.0
+offset_bottom = 408.0
+theme = ExtResource("3_a3r04")
+theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+text = "SWIPE UP to DISMISS message"
+autowrap_mode = 2
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(574.938, 525.938)
+scale = Vector2(770.125, 132.125)
+texture = ExtResource("1_psnf6")
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 472.0
+offset_right = 952.0
+offset_bottom = 576.0
+theme = ExtResource("3_a3r04")
+theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+text = "Swipe the message up to dismiss the embarrassing message!"
+autowrap_mode = 2

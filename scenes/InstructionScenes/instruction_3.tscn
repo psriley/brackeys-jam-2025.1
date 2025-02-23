@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://b88jfxauxtg78"]
+
+[ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="1_8b43d"]
+[ext_resource type="Texture2D" uid="uid://gsdypvj03o0x" path="res://Assets/Sprites/tv-edge.png" id="2_7oo7t"]
+[ext_resource type="Texture2D" uid="uid://b45fw756ngvgs" path="res://Assets/Sprites/placeholder-main-scene#2.png" id="3_pb885"]
+[ext_resource type="Texture2D" uid="uid://cetclcp5dcs7f" path="res://Assets/Spritesheets/Slide Countdown.png" id="4_c8aln"]
+[ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="5_1nnvm"]
+[ext_resource type="Texture2D" uid="uid://c2evua8kjx2y8" path="res://Assets/Sprites/MenuSprites/instruction-click-arrow.png" id="6_i8tyh"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 234.5)
+scale = Vector2(666, 379)
+texture = ExtResource("1_8b43d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(456, 184)
+scale = Vector2(368, 208)
+texture = ExtResource("1_8b43d")
+
+[node name="AdSprite" type="Sprite2D" parent="."]
+position = Vector2(456, 184)
+scale = Vector2(4.62222, 4.62222)
+texture = ExtResource("2_7oo7t")
+
+[node name="Placeholder-main-scene#2" type="Sprite2D" parent="."]
+position = Vector2(736, 184)
+scale = Vector2(2.87179, 2.87179)
+texture = ExtResource("3_pb885")
+region_enabled = true
+region_rect = Rect2(88.718, 4.13647, 39.282, 43.8359)
+
+[node name="ProgressBar" type="Sprite2D" parent="."]
+position = Vector2(744, 136)
+scale = Vector2(2.66667, 2.66667)
+texture = ExtResource("4_c8aln")
+region_enabled = true
+region_rect = Rect2(63.3608, 93.2314, 32.0562, 18.1818)
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 301.0
+offset_right = 752.0
+offset_bottom = 394.0
+theme = ExtResource("5_1nnvm")
+theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+text = "When SCREEN goes black, click laptop multiple times!"
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 688.0
+offset_top = 256.0
+offset_right = 800.0
+offset_bottom = 301.0
+theme = ExtResource("5_1nnvm")
+theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+text = "CLICK!"
+autowrap_mode = 2
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(574.938, 525.938)
+scale = Vector2(770.125, 132.125)
+texture = ExtResource("1_8b43d")
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 472.0
+offset_right = 952.0
+offset_bottom = 576.0
+theme = ExtResource("5_1nnvm")
+theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+text = "Oh no! When the screen goes black, click on the laptop MANY times until it fixes!"
+autowrap_mode = 2
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(744, 240)
+rotation = 1.5708
+scale = Vector2(6.77513, 6.77512)
+texture = ExtResource("6_i8tyh")

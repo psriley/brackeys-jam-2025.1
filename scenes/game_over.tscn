@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c43ylfab67o1r"]
+[gd_scene load_steps=7 format=3 uid="uid://c43ylfab67o1r"]
 
 [ext_resource type="Texture2D" uid="uid://b0nsjm06r0mmm" path="res://Assets/Sprites/MenuSprites/game-over-background.png" id="1_rc1fr"]
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_vhexs"]
 [ext_resource type="Texture2D" uid="uid://igy1t7kh1e1x" path="res://Assets/Sprites/MenuSprites/restart-button-empty.png" id="2_88qj3"]
 [ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="2_b6162"]
+[ext_resource type="Texture2D" uid="uid://dc3y37n8oa3s0" path="res://Assets/Sprites/MenuSprites/quit-button-empty.png" id="4_teeqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3d7m"]
 size = Vector2(28, 8)
@@ -33,7 +34,7 @@ shape = SubResource("RectangleShape2D_t3d7m")
 
 [node name="Quit" type="Sprite2D" parent="QuitButton"]
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_88qj3")
+texture = ExtResource("4_teeqm")
 
 [node name="Control" type="Control" parent="."]
 visible = false
@@ -96,6 +97,6 @@ vertical_alignment = 1
 [connection signal="input_event" from="RestartButton" to="." method="_on_restart_button_input_event"]
 [connection signal="mouse_entered" from="RestartButton" to="." method="_on_restart_button_mouse_entered"]
 [connection signal="mouse_exited" from="RestartButton" to="." method="_on_restart_button_mouse_exited"]
-[connection signal="input_event" from="QuitButton" to="." method="_on_restart_button_input_event"]
-[connection signal="mouse_entered" from="QuitButton" to="." method="_on_restart_button_mouse_entered"]
-[connection signal="mouse_exited" from="QuitButton" to="." method="_on_restart_button_mouse_exited"]
+[connection signal="input_event" from="QuitButton" to="." method="_on_quit_button_input_event"]
+[connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="mouse_exited" from="QuitButton" to="." method="_on_quit_button_mouse_exited"]

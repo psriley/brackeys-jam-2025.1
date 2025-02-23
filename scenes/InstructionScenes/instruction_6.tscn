@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq6j1ycxj2atg"]
+
+[ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="1_le3w7"]
+[ext_resource type="Texture2D" uid="uid://5r2g8wcgnjxq" path="res://Assets/Sprites/MenuSprites/space-prompt.PNG" id="2_vphbm"]
+[ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="3_2e0lm"]
+[ext_resource type="Texture2D" uid="uid://c2evua8kjx2y8" path="res://Assets/Sprites/MenuSprites/instruction-click-arrow.png" id="4_goi1a"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 234.5)
+scale = Vector2(666, 379)
+texture = ExtResource("1_le3w7")
+
+[node name="AdSprite" type="Sprite2D" parent="."]
+position = Vector2(512, 208)
+scale = Vector2(0.425664, 0.425665)
+texture = ExtResource("2_vphbm")
+region_enabled = true
+region_rect = Rect2(0, 0, 1148, 639.096)
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(574.938, 525.938)
+scale = Vector2(770.125, 132.125)
+texture = ExtResource("1_le3w7")
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 472.0
+offset_right = 952.0
+offset_bottom = 576.0
+theme = ExtResource("3_2e0lm")
+theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+text = "Make sure to keep the presentation moving, by pressing space when prompted!"
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 756.0
+offset_top = 131.0
+offset_right = 908.0
+offset_bottom = 176.0
+theme = ExtResource("3_2e0lm")
+theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+text = "Prompt"
+autowrap_mode = 2
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(752, 104)
+scale = Vector2(5.33334, 5.33333)
+texture = ExtResource("4_goi1a")

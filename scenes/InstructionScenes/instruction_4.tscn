@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg4hx0pi6c0kx"]
+
+[ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="1_tyfre"]
+[ext_resource type="Texture2D" uid="uid://bxlyp28a8rapq" path="res://Assets/Sprites/MenuSprites/question_example.PNG" id="2_hnx8y"]
+[ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="4_a0rfq"]
+[ext_resource type="Texture2D" uid="uid://c2evua8kjx2y8" path="res://Assets/Sprites/MenuSprites/instruction-click-arrow.png" id="5_dhace"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 234.5)
+scale = Vector2(666, 379)
+texture = ExtResource("1_tyfre")
+
+[node name="AdSprite" type="Sprite2D" parent="."]
+position = Vector2(576.744, 200)
+scale = Vector2(0.446511, 0.446512)
+texture = ExtResource("2_hnx8y")
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 552.744
+offset_top = 360.0
+offset_right = 664.744
+offset_bottom = 405.0
+theme = ExtResource("4_a0rfq")
+theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+text = "TYPE!"
+autowrap_mode = 2
+
+[node name="Label7" type="Label" parent="."]
+offset_left = 560.0
+offset_top = 296.0
+offset_right = 640.0
+offset_bottom = 341.0
+theme = ExtResource("4_a0rfq")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "good"
+autowrap_mode = 2
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(574.938, 525.938)
+scale = Vector2(770.125, 132.125)
+texture = ExtResource("1_tyfre")
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 472.0
+offset_right = 952.0
+offset_bottom = 576.0
+theme = ExtResource("4_a0rfq")
+theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+text = "When the audience asks a question, type the correct answer in the input box!"
+autowrap_mode = 2
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(600.744, 344)
+rotation = 1.5708
+scale = Vector2(6.77513, 6.77512)
+texture = ExtResource("5_dhace")
