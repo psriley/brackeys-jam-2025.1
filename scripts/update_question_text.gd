@@ -5,11 +5,11 @@ var input_box_instance: Control
 var question_string: String
 var answer_string: String
 
-var dict_questions = {
-	"What is the Capital of France":"Paris",
-	"What animal goes moo":["Cow", "Pig", "Dog"],
-	"":""
-}
+#var dict_questions = {
+	#"What is the Capital of France":"Paris",
+	#"What animal goes moo":["Cow", "Pig", "Dog"],
+	#"How do our reports look?":"good, bad, really bad"
+#}
 
 func _ready() -> void:
 	tmr_time = 2.5
@@ -36,6 +36,10 @@ func preload_answers() -> void:
 			answer_string = "pig"
 			answers_sprites = [preload("res://Assets/Sprites/answer_sprites/Answer Pig.png"), preload("res://Assets/Sprites/answer_sprites/answer_cow.png"), preload("res://Assets/Sprites/answer_sprites/answer_dog.png")]
 		1:
+			question_string = "How are our reports?"
+			answer_string = "good"
+			answers_sprites = [preload("res://Assets/Sprites/answer_sprites/answer_bad.png"), preload("res://Assets/Sprites/answer_sprites/answer_awful.png"), preload("res://Assets/Sprites/answer_sprites/answer_good.png")]
+
 			pass
 	pass
 
