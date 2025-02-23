@@ -110,13 +110,13 @@ stretch_mode = 0
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
-offset_left = 256.0
+offset_left = 272.0
 offset_top = 48.0
-offset_right = 906.0
+offset_right = 904.0
 offset_bottom = 138.0
 theme = ExtResource("2_5nc1l")
 theme_override_font_sizes/font_size = 80
-text = "Presentation Game"
+text = "Next Slide, Please"
 
 [node name="Start" type="Label" parent="."]
 layout_mode = 0
