@@ -12,7 +12,7 @@ func _ready() -> void:
 	m_type = MiniGameType.LAPTOP
 	anger_bar = get_child(1)
 	setup_anger_bar()
-	num_clicks = randi_range(1, 6)
+	num_clicks = randi_range(1, 3)
 	print(num_clicks)
 
 

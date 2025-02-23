@@ -78,7 +78,21 @@ func _next_game() -> void:
 		slides_to_add_back.append(question_instance.m_type)
 		minigames_arr.pop_at(question_instance.m_type)
 	
-	var i : int = minigames_arr.pick_random()
+	# pick random number from large range to make ads more probable, and last minigames less probable
+	# 60% chance for ad pop-up, 30% chance for swipe, 5% for laptop and question
+	var rand_num = randi_range(1, 100)
+
+	var i = 0
+
+	if rand_num > 60 and rand_num <= 90 and minigames_arr.find(1) != -1:
+		i = 1
+	elif rand_num > 90 and rand_num <= 95 and minigames_arr.find(2) != -1:
+		i = 2
+	elif rand_num > 95 and rand_num <= 100 and minigames_arr.find(3) != -1:
+		i = 3
+		
+	
+	#var i : int = minigames_arr.pick_random()
 	#var i : int = 2
 	
 	var cur_minigame_instance : MiniGame = create_minigame_instance(i)
