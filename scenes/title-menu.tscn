@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmdjxsbdaj8wb"]
 
-[ext_resource type="Texture2D" uid="uid://bhtb6dsgoy8ts" path="res://Assets/Sprites/title-menu.png" id="1_n2fki"]
+[ext_resource type="Texture2D" uid="uid://bhtb6dsgoy8ts" path="res://Assets/Sprites/MenuSprites/title-menu.png" id="1_n2fki"]
 [ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="2_5nc1l"]
 
 [node name="Control" type="Control"]

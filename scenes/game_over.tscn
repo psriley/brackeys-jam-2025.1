@@ -1,15 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://c43ylfab67o1r"]
+[gd_scene load_steps=6 format=3 uid="uid://c43ylfab67o1r"]
 
-[ext_resource type="Texture2D" uid="uid://bhdudxegliabk" path="res://Assets/Sprites/white-dot.png" id="1_8jlor"]
+[ext_resource type="Texture2D" uid="uid://b0nsjm06r0mmm" path="res://Assets/Sprites/MenuSprites/game-over-background.png" id="1_rc1fr"]
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_vhexs"]
+[ext_resource type="Texture2D" uid="uid://igy1t7kh1e1x" path="res://Assets/Sprites/MenuSprites/restart-button-empty.png" id="2_88qj3"]
 [ext_resource type="Theme" uid="uid://codpkvx0h4s1p" path="res://Assets/pixel-text-theme.tres" id="2_b6162"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3d7m"]
+size = Vector2(28, 8)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(80, 45)
-texture = ExtResource("1_8jlor")
+[node name="GameOverMenu" type="Node2D"]
+script = ExtResource("1_vhexs")
+
+[node name="GameOver" type="Sprite2D" parent="."]
+texture = ExtResource("1_rc1fr")
+
+[node name="RestartButton" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RestartButton"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_t3d7m")
+
+[node name="Restart" type="Sprite2D" parent="RestartButton"]
+position = Vector2(0, 4)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_88qj3")
+
+[node name="QuitButton" type="Area2D" parent="."]
+position = Vector2(0, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QuitButton"]
+shape = SubResource("RectangleShape2D_t3d7m")
+
+[node name="Quit" type="Sprite2D" parent="QuitButton"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_88qj3")
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,3 +74,28 @@ offset_left = -16.0
 offset_top = 12.0
 offset_right = 16.0
 offset_bottom = 20.0
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -5.0
+offset_right = 120.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("2_b6162")
+theme_override_font_sizes/font_size = 8
+text = "Score: 7.7 seconds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="input_event" from="RestartButton" to="." method="_on_restart_button_input_event"]
+[connection signal="mouse_entered" from="RestartButton" to="." method="_on_restart_button_mouse_entered"]
+[connection signal="mouse_exited" from="RestartButton" to="." method="_on_restart_button_mouse_exited"]
+[connection signal="input_event" from="QuitButton" to="." method="_on_restart_button_input_event"]
+[connection signal="mouse_entered" from="QuitButton" to="." method="_on_restart_button_mouse_entered"]
+[connection signal="mouse_exited" from="QuitButton" to="." method="_on_restart_button_mouse_exited"]

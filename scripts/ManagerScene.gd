@@ -1,6 +1,10 @@
 extends Node
+var time_score : float = 0.0
+var game_active : bool = false
+
 @onready var timer = $tmr_next_game
 @onready var audience_positions : Node2D = $"../../AudiencePositions"
+@onready var presentation = $"../../spr_presentation"
 
 @export var health: int = 3
 @export var tmr_weight: float = 1
@@ -11,6 +15,7 @@ var swipe_scene = preload("res://scenes/swipe_mini_game.tscn")
 var laptop_scene = preload("res://scenes/laptop_area.tscn")
 var question_input = preload("res://scenes/QuestionGame/InputTextbox.tscn")
 var question_display = preload("res://scenes/QuestionGame/question_display.tscn")
+var game_over = preload("res://scenes/game_over.tscn")
 #Dict of questions and answers
 #	Rule; Questions must be ~<30 Chars
 var dict_questions = {
@@ -29,6 +34,7 @@ var minigames_arr : Array[int]
 var cur_minigame_instances : Array[MiniGame]
 
 func _ready() -> void:
+	game_active = true
 	minigames_arr = [0, 1, 2, 3] #TODO: Add question minigame back when it works with the minigame structure
 	audience = [audience_positions.get_child(0), audience_positions.get_child(1), audience_positions.get_child(2)]
 	if audience.size() != health:
@@ -36,6 +42,11 @@ func _ready() -> void:
 		printerr("Health = " + str(health))
 		printerr("Audience size = " + str(audience.size()))
 		assert(audience.size() == health)
+
+
+func _process(delta: float) -> void:
+	if game_active:
+		time_score += delta
 
 
 func _on_tmr_next_game_timeout() -> void:
@@ -55,6 +66,22 @@ func minigame_failure(minigame_ref : MiniGame) -> void:
 	cur_minigame_instances.pop_at(minigame_int)
 	
 	print("Health is now: " + str(health) + " because of " + MiniGame.MiniGameType.find_key(minigame_ref.m_type))
+	
+	# Check if game is over, if so stop game and add game over screen
+	if audience.is_empty():
+		game_active = false
+		presentation.queue_free()
+		timer.queue_free()
+		var game_over_screen : Node2D = game_over.instantiate()
+		game_over_screen.position = Vector2(45.1, 26)
+		game_over_screen.score = time_score
+		get_parent().add_child(game_over_screen)
+		
+		# this is kind of messy, but all successful minigames become null in cur_minigame_instances...so we only want to remove the active ones here
+		var non_null_minigame_instances = cur_minigame_instances.filter(func(x): return x != null)
+		
+		for minigame in non_null_minigame_instances:
+			minigame.queue_free()
 
 
 #Code to instantiate the next game
