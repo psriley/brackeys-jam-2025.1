@@ -29,7 +29,7 @@ var minigames_arr : Array[int]
 var cur_minigame_instances : Array[MiniGame]
 
 func _ready() -> void:
-	minigames_arr = [0, 1, 2] #TODO: Add question minigame back when it works with the minigame structure
+	minigames_arr = [0, 1, 2, 3] #TODO: Add question minigame back when it works with the minigame structure
 	audience = [audience_positions.get_child(0), audience_positions.get_child(1), audience_positions.get_child(2)]
 	if audience.size() != health:
 		printerr("Health and audience size must be equal!")
@@ -41,7 +41,7 @@ func _ready() -> void:
 func _on_tmr_next_game_timeout() -> void:
 	timer.wait_time = randf_range(0.5,3.0)
 	_next_game()
-	timer.start()
+	timer.start() 
 
 
 func minigame_failure(minigame_ref : MiniGame) -> void:
@@ -73,6 +73,10 @@ func _next_game() -> void:
 	if is_instance_valid(laptop_instance):
 		slides_to_add_back.append(laptop_instance.m_type)
 		minigames_arr.pop_at(laptop_instance.m_type)
+		
+	if is_instance_valid(question_instance):
+		slides_to_add_back.append(question_instance.m_type)
+		minigames_arr.pop_at(question_instance.m_type)
 	
 	var i : int = minigames_arr.pick_random()
 	#var i : int = 2
@@ -152,14 +156,15 @@ func create_minigame_instance(m_type : int) -> MiniGame:
 		3:
 			#var x = randf_range(0, dict_questions.size())
 			#var answer_instance : Control = question_input.instantiate()
-			#question_instance = question_display.instantiate()
+			question_instance = question_display.instantiate()
 			#print("And the question is... " + temp_question)
-			question_instance.position = Vector2(50,164)
+			#question_instance.position = Vector2(50,160)
+			question_instance.global_position = Vector2(18,51)
+			question_instance.scale = Vector2(0.083,0.083)
 
 			#instantiate
 			get_parent().add_child(question_instance)
-			#
-			#return MiniGame.new()
+			return question_instance
 	
 	printerr("Unknown MiniGame created (audience member not going to be attached correctly)!")
 	return MiniGame.new()
