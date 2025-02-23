@@ -29,6 +29,7 @@ func initialise_inputbox() -> void:
 	input_box_instance.global_position = Vector2(0,0)
 	input_box_instance.target_answer = answer_string
 	get_tree().current_scene.add_child(input_box_instance)
+	input_box_instance.get_child(0).grab_focus()
 
 func preload_answers() -> void:
 	var i = randi_range(0,1)

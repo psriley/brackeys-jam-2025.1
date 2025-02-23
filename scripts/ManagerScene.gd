@@ -94,9 +94,15 @@ func _next_game() -> void:
 	cur_minigame_instance.tmr_success.start()
 
 	if !slides_to_add_back.is_empty():
-		for slide_id in slides_to_add_back.size():
-			minigames_arr.insert(slides_to_add_back[slide_id], slides_to_add_back[slide_id])
-			slides_to_add_back.pop_at(slide_id)
+		for slide_id in slides_to_add_back:
+			minigames_arr.insert(slide_id, slide_id)  # Insert the slide back
+			
+		slides_to_add_back.clear() # This is probably not necessary since this is a local variable that gets recreated next frame
+
+	#if !slides_to_add_back.is_empty():
+		#for slide_id in slides_to_add_back.size():
+			#minigames_arr.insert(slides_to_add_back[slide_id], slides_to_add_back[slide_id])
+			#slides_to_add_back.pop_at(slide_id)
 			
 		#for slide in range(slides_to_add_back.size()):
 			#slides_to_add_back[slide_id]
@@ -164,6 +170,7 @@ func create_minigame_instance(m_type : int) -> MiniGame:
 
 			#instantiate
 			get_parent().add_child(question_instance)
+			# grab focus on line edit
 			return question_instance
 	
 	printerr("Unknown MiniGame created (audience member not going to be attached correctly)!")
